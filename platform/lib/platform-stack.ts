@@ -1,6 +1,25 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
+function createLangfuseCredentials({
+  langfuseEndpoint,
+  langfusePublicKey,
+  langfuseSecretKey,
+}: {
+  langfuseEndpoint?: string,
+  langfusePublicKey?: string,
+  langfuseSecretKey?: string,
+}): Record<string, string> {
+  if (langfuseEndpoint && langfusePublicKey && langfuseSecretKey) {
+    return {
+      LANGFUSE_ENDPOINT: langfuseEndpoint,
+      LANGFUSE_PUBLIC_KEY: langfusePublicKey,
+      LANGFUSE_SECRET_KEY: langfuseSecretKey,
+    };  
+  }
+  return {};
+}
+
 export class PlatformStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -8,11 +27,11 @@ export class PlatformStack extends cdk.Stack {
     const langfuseEndpoint = this.node.tryGetContext('langfuse-endpoint');
     const langfusePublicKey = this.node.tryGetContext('langfuse-public-key');
     const langfuseSecretKey = this.node.tryGetContext('langfuse-secret-key');
-    const langfuseCredentials: Record<string, string> = langfuseEndpoint && langfusePublicKey && langfuseSecretKey ? {
-      LANGFUSE_ENDPOINT: langfuseEndpoint,
-      LANGFUSE_PUBLIC_KEY: langfusePublicKey,
-      LANGFUSE_SECRET_KEY: langfuseSecretKey,
-    } : {};
+    const langfuseCredentials = createLangfuseCredentials({
+      langfuseEndpoint,
+      langfusePublicKey,
+      langfuseSecretKey,
+    });
     // const enableDevelopment = {
     //   target: 'dev',
     // };
