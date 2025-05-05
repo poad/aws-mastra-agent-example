@@ -1,6 +1,5 @@
 import { bedrock } from '@ai-sdk/amazon-bedrock';
 import { Agent } from '@mastra/core/agent';
-import { Memory } from '@mastra/memory';
 import { weatherTool } from '../tools';
 
 export const weatherAgent = new Agent({
@@ -19,13 +18,4 @@ export const weatherAgent = new Agent({
 `,
   model: bedrock('us.anthropic.claude-3-7-sonnet-20250219-v1:0'),
   tools: { weatherTool },
-  memory: new Memory({
-    options: {
-      lastMessages: 10,
-      semanticRecall: false,
-      threads: {
-        generateTitle: false,
-      },
-    },
-  }),
 });
