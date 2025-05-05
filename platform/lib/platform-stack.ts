@@ -5,10 +5,19 @@ export class PlatformStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
+    const langfuseEndpoint = this.node.tryGetContext('langfuse-endpoint');
+    const langfusePublicKey = this.node.tryGetContext('langfuse-public-key');
+    const langfuseSecretKey = this.node.tryGetContext('langfuse-secret-key');
+    const langfuseCredentials: Record<string, string> = langfuseEndpoint && langfusePublicKey && langfuseSecretKey ? {
+      LANGFUSE_ENDPOINT: langfuseEndpoint,
+      LANGFUSE_PUBLIC_KEY: langfusePublicKey,
+      LANGFUSE_SECRET_KEY: langfuseSecretKey,
+    } : {};
     // const enableDevelopment = {
     //   target: 'dev',
     // };
 
+    // TODO: LambdaLeyer + NodejsFunction では zip 化する前のサイズが制限を超えてしまうため Docker イメージとしてデプロイする
     // const webAdapter = cdk.aws_lambda.LayerVersion
     //   .fromLayerVersionArn(
     //     this,
@@ -22,7 +31,7 @@ export class PlatformStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       retention: cdk.aws_logs.RetentionDays.ONE_DAY,
     });
-    new cdk.aws_lambda.DockerImageFunction(this, 'Lambda', {
+    const fn = new cdk.aws_lambda.DockerImageFunction(this, 'Lambda', {
       functionName,
       architecture: cdk.aws_lambda.Architecture.ARM_64,
       code: cdk.aws_lambda.DockerImageCode.fromImageAsset('.', {
@@ -36,6 +45,7 @@ export class PlatformStack extends cdk.Stack {
         // AWS_LWA_INVOKE_MODE: 'response_stream',
         RUST_LOG: 'info',
         PORT: '3000',
+        ...langfuseCredentials,
       },
       timeout: cdk.Duration.seconds(30),
       memorySize: 256,
@@ -66,6 +76,11 @@ export class PlatformStack extends cdk.Stack {
       //   banner: 'import { createRequire } from \'module\';const require = createRequire(import.meta.url);',
       // },
       loggingFormat: cdk.aws_lambda.LoggingFormat.JSON,
+    });
+
+    new cdk.aws_lambda.FunctionUrl(this, 'FunctionUrl', {
+      function: fn,
+      authType: cdk.aws_lambda.FunctionUrlAuthType.NONE,
     });
   }
 }
