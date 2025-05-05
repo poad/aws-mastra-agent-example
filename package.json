@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "pnpm -r --if-present --parallel lint",
+    "lint-fix": "pnpm -r --if-present --parallel lint-fix"
   },
   "keywords": [],
   "author": "",

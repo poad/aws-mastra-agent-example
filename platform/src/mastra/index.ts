@@ -2,7 +2,7 @@
 import { Mastra } from '@mastra/core/mastra';
 import { createLogger } from '@mastra/core/logger';
 import { LibSQLStore } from '@mastra/libsql';
-import { LangfuseExporter } from "langfuse-vercel";
+import { LangfuseExporter } from 'langfuse-vercel';
 
 import { weatherAgent } from './agents';
 
@@ -22,10 +22,10 @@ export const mastra = new Mastra({
     level: 'info',
   }),
   telemetry: {
-    serviceName: "ai", // this must be set to "ai" so that the LangfuseExporter thinks it's an AI SDK trace
+    serviceName: 'ai', // this must be set to "ai" so that the LangfuseExporter thinks it's an AI SDK trace
     enabled: true,
     export: {
-      type: "custom",
+      type: 'custom',
       exporter: new LangfuseExporter({
         publicKey: process.env.LANGFUSE_PUBLIC_KEY,
         secretKey: process.env.LANGFUSE_SECRET_KEY,

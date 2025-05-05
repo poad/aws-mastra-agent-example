@@ -10,10 +10,15 @@ updates:
     rebase-strategy: auto
     assignees:
       - poad
+    groups:
+      actions:
+        patterns:
+          - '*'
 
   - package-ecosystem: npm
     directories:
       - '/'
+      - '/platform/'
     schedule:
       interval: daily
       timezone: Asia/Tokyo
