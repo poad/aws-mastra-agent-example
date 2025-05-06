@@ -55,6 +55,7 @@ jobs:
           - args: [--global, aws-cdk, esbuild]
 
     - name: deploy
+      working-directory: ./platform
       run: |
         cdk deploy \
           -c langfuse-endpoint=${{ secrets.LANGFUSE_ENDPOINT }} \

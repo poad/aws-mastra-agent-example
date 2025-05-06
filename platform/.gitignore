@@ -144,7 +144,6 @@ node_modules
 .cdk.staging
 cdk.out
 !eslint.config.js
-!postcss.config.js
 .mastra
 .aws-sam
 
