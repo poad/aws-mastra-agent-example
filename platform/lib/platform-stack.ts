@@ -95,6 +95,27 @@ export class PlatformStack extends cdk.Stack {
       //   banner: 'import { createRequire } from \'module\';const require = createRequire(import.meta.url);',
       // },
       loggingFormat: cdk.aws_lambda.LoggingFormat.JSON,
+      role: new cdk.aws_iam.Role(this, 'FunctionExecutionRole', {
+        assumedBy: new cdk.aws_iam.ServicePrincipal('lambda.amazonaws.com'),
+        managedPolicies: [
+          cdk.aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AWSLambdaExecute'),
+        ],
+        inlinePolicies: {
+          'bedrock-policy': new cdk.aws_iam.PolicyDocument({
+            statements: [
+              new cdk.aws_iam.PolicyStatement({
+                effect: cdk.aws_iam.Effect.ALLOW,
+                actions: [
+                  'bedrock:InvokeModel*',
+                  'logs:PutLogEvents',
+                ],
+                resources: ['*'],
+              }),
+            ],
+          }),
+        },
+      }),
+
     });
 
     new cdk.aws_lambda.FunctionUrl(this, 'FunctionUrl', {
