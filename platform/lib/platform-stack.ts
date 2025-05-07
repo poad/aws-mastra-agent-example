@@ -214,6 +214,8 @@ export class PlatformStack extends cdk.Stack {
       httpVersion: cdk.aws_cloudfront.HttpVersion.HTTP2_AND_3,
     });
 
+    // fn.addEnvironment('ALLOW_CORS_ORIGIN', `https://${distribution.distributionDomainName}`);
+
     const deployRole = new cdk.aws_iam.Role(this, 'DeployWebsiteRole', {
       roleName: `${s3bucket.bucketName}-deploy-role`,
       assumedBy: new cdk.aws_iam.ServicePrincipal('lambda.amazonaws.com'),

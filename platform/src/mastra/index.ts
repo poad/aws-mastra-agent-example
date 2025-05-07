@@ -6,6 +6,15 @@ import { LangfuseExporter } from 'langfuse-vercel';
 
 import { weatherAgent } from './agents';
 
+const origin = process.env.ALLOW_CORS_ORIGIN ?? '*';
+
+const cors = origin ? {
+  origin: [origin],
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization'],
+  credentials: false,
+} : undefined;
+
 export const mastra = new Mastra({
   agents: { weatherAgent },
   storage: new LibSQLStore({
@@ -16,6 +25,7 @@ export const mastra = new Mastra({
     port: process.env.PORT ? Number.parseInt(process.env.PORT) : undefined,
     host: '0.0.0.0',
     timeout: 10000,
+    cors,
   },
   logger: createLogger({
     name: 'Mastra',
