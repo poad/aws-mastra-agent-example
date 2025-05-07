@@ -18,6 +18,7 @@ updates:
   - package-ecosystem: npm
     directories:
       - '/'
+      - '/platform/'
     schedule:
       interval: daily
       timezone: Asia/Tokyo
