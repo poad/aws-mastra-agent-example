@@ -2,6 +2,8 @@ import { bedrock } from '@ai-sdk/amazon-bedrock';
 import { Agent } from '@mastra/core/agent';
 import { weatherTool } from '../tools';
 
+const BEDROCK_MODEL = process.env.BEDROCK_MODEL ?? 'us.amazon.nova-premier-v1:0';
+
 export const weatherAgent = new Agent({
   name: 'Weather Agent',
   instructions: `
@@ -16,6 +18,6 @@ export const weatherAgent = new Agent({
 
       Use the weatherTool to fetch current weather data.
 `,
-  model: bedrock('us.amazon.nova-premier-v1:0'),
+  model: bedrock(BEDROCK_MODEL),
   tools: { weatherTool },
 });

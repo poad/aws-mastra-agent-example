@@ -42,11 +42,11 @@
 
 .history-user {
   background-color: #ccf0f0;
+  margin-left: 5%;
 }
 
 .history-system {
   background-color: #f0f0cc;
-  margin-left: 5%;
 }
 
 .role {
@@ -55,6 +55,13 @@
 
 .message {
   padding-left: 1rem;
+}
+
+.error {
+  border-radius: 15px;
+  padding: 0.75rem;
+  background-color: #ffaaaa;
+  color: #cc0000;
 }
 
 #input-bar {
@@ -69,21 +76,17 @@
 
 #input-box {
   margin-right: 0.75rem;
+  padding-left: 0.5rem;
   font-size: 1rem;
   border: 1px solid #000;
   width: 50vw;
 }
 
-#model-selector {
-  font-size: 1rem;
-  padding: 1rem;
-  border: 1px solid #000;
-  margin-right: 0.75rem;
-}
-
 #send-button {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   font-size: 1rem;
   border: 1px solid #000;
 }

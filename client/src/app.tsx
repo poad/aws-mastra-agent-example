@@ -1,5 +1,5 @@
 import { Suspense, type Component } from 'solid-js';
-import Chat from './features/chat/components/Chat';
+import { Chat } from './features/chat/components/Chat';
 
 import './app.css';
 

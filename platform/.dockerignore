@@ -1,4 +1,5 @@
 ./node_modules
+!.mastra/output/node_modules
 .mastra/.build
 cdk.out
 bin

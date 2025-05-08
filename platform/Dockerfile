@@ -27,7 +27,7 @@ RUN pnpm i
 
 COPY . ./
 
-ENV PORT=3000
+ENV PORT=8080
 
 ENTRYPOINT ["pnpm", "dev"]
 
@@ -40,9 +40,6 @@ COPY --from=build /build /var/task
 
 WORKDIR "/var/task"
 
-RUN rm -rf src pnpm-lock.yaml tsconfig.json package.json node_modules
+ENV PORT=8080
 
-ENV PORT=3000
-
-ENTRYPOINT ["node"]
-CMD [".mastra/output/index.mjs"]
+ENTRYPOINT [ "node", "--import=./.mastra/output/instrumentation.mjs", ".mastra/output/index.mjs" ]

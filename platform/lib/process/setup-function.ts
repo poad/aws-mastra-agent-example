@@ -2,8 +2,8 @@ import * as childProcess from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 
-export const compileBundles = () => {
-  ['function', '../client'].forEach((f) => {
+export const compileCloudFrontBundles = () => {
+  ['function'].forEach((f) => {
     fs.readdirSync(`${process.cwd()}/${f}`, {
       withFileTypes: true,
     })
@@ -29,7 +29,7 @@ export const compileBundles = () => {
     });
   });
 
-  ['function', '../client'].forEach((f) => {
+  ['function'].forEach((f) => {
     childProcess.execSync('pnpm build', {
       cwd: path.resolve(`${process.cwd()}/${f}/`),
       stdio: ['ignore', 'inherit', 'inherit'],

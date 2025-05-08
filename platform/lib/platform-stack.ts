@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { compileBundles } from './process/setup';
+import { compileCloudFrontBundles } from './process/setup-function';
+import { compileClientBundles } from './process/setup-client';
 
 function createLangfuseCredentials({
   langfuseEndpoint,
@@ -16,7 +17,7 @@ function createLangfuseCredentials({
       LANGFUSE_ENDPOINT: langfuseEndpoint,
       LANGFUSE_PUBLIC_KEY: langfusePublicKey,
       LANGFUSE_SECRET_KEY: langfuseSecretKey,
-    };  
+    };
   }
   return {};
 }
@@ -33,16 +34,32 @@ export class PlatformStack extends cdk.Stack {
       langfusePublicKey,
       langfuseSecretKey,
     });
-    // const enableDevelopment = {
-    //   target: 'dev',
-    // };
 
-    // TODO: LambdaLeyer + NodejsFunction では zip 化する前のサイズが制限を超えてしまうため Docker イメージとしてデプロイする
-    // const webAdapter = cdk.aws_lambda.LayerVersion
-    //   .fromLayerVersionArn(
-    //     this,
-    //     'LayerVersion',
-    //     `arn:aws:lambda:${this.region}:753240598075:layer:LambdaAdapterLayerArm64:25`);
+    const s3bucket = new cdk.aws_s3.Bucket(this, 'S3Bucket', {
+      bucketName: 'mastra-agent',
+      versioned: false,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+      accessControl: cdk.aws_s3.BucketAccessControl.PRIVATE,
+      publicReadAccess: false,
+      encryption: cdk.aws_s3.BucketEncryption.S3_MANAGED,
+    });
+
+    s3bucket.addToResourcePolicy(
+      new cdk.aws_iam.PolicyStatement({
+        effect: cdk.aws_iam.Effect.ALLOW,
+        actions: ['s3:*'],
+        principals: [new cdk.aws_iam.AccountPrincipal(this.account)],
+        resources: [`${s3bucket.bucketArn}/*`],
+        conditions: {
+          StringEquals: {
+            's3:ResourceAccount': this.account,
+          },
+        },
+      }),
+    );
+
+
 
     const functionName = 'mastra-agent';
 
@@ -62,9 +79,12 @@ export class PlatformStack extends cdk.Stack {
       logGroup,
       environment: {
         // Lambda Web Adapter の設定
-        // AWS_LWA_INVOKE_MODE: 'response_stream',
+        AWS_LAMBDA_EXEC_WRAPPER: '/opt/bootstrap',
+        AWS_LWA_INVOKE_MODE: 'response_stream',
         RUST_LOG: 'info',
-        PORT: '3000',
+        PORT: '8080',
+        AWS_LWA_PORT: '8080',
+        AWS_LWA_REMOVE_BASE_PATH: '/agent',
         ...langfuseCredentials,
       },
       timeout: cdk.Duration.seconds(30),
@@ -116,35 +136,16 @@ export class PlatformStack extends cdk.Stack {
           }),
         },
       }),
-
     });
 
-    const s3bucket = new cdk.aws_s3.Bucket(this, 'S3Bucket', {
-      bucketName: 'mastra-agent',
-      versioned: false,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-      autoDeleteObjects: true,
-      accessControl: cdk.aws_s3.BucketAccessControl.PRIVATE,
-      publicReadAccess: false,
-      encryption: cdk.aws_s3.BucketEncryption.S3_MANAGED,
+    const functionUrl = fn.addFunctionUrl({
+      authType: cdk.aws_lambda.FunctionUrlAuthType.AWS_IAM,
+      invokeMode: cdk.aws_lambda.InvokeMode.RESPONSE_STREAM,
     });
 
-    s3bucket.addToResourcePolicy(
-      new cdk.aws_iam.PolicyStatement({
-        effect: cdk.aws_iam.Effect.ALLOW,
-        actions: ['s3:*'],
-        principals: [new cdk.aws_iam.AccountPrincipal(this.account)],
-        resources: [`${s3bucket.bucketArn}/*`],
-        conditions: {
-          StringEquals: {
-            's3:ResourceAccount': this.account,
-          },
-        },
-      }),
-    );
 
     // CloudFront Functionリソースの定義
-    compileBundles();
+    compileCloudFrontBundles();
 
     const websiteIndexPageForwardFunction = new cdk.aws_cloudfront.Function(this, 'WebsiteIndexPageForwardFunction', {
       functionName: 'mastra-client-index-forward',
@@ -165,31 +166,36 @@ export class PlatformStack extends cdk.Stack {
       signing: cdk.aws_cloudfront.Signing.SIGV4_NO_OVERRIDE,
     });
 
+    const lambdaOac = new cdk.aws_cloudfront.FunctionUrlOriginAccessControl(this, 'LambdaOriginAccessControl', {
+      originAccessControlName: 'mastra-agent-api-oac',
+      signing: cdk.aws_cloudfront.Signing.SIGV4_ALWAYS,
+    });
+
     new cdk.aws_cloudfront.Distribution(this, 'CloudFront', {
       comment: 'Mastra AI Agent Client',
       defaultBehavior: {
         origin: cdk.aws_cloudfront_origins.S3BucketOrigin.withOriginAccessControl(s3bucket, {
           originAccessControl: oac,
+          originId: 's3',
         }),
         compress: true,
         functionAssociations,
-        allowedMethods: cdk.aws_cloudfront.AllowedMethods.ALLOW_GET_HEAD,
-        cachePolicy: cdk.aws_cloudfront.CachePolicy.CACHING_OPTIMIZED,
-        cachedMethods: cdk.aws_cloudfront.CachedMethods.CACHE_GET_HEAD,
+        allowedMethods: cdk.aws_cloudfront.AllowedMethods.ALLOW_ALL,
+        cachePolicy: cdk.aws_cloudfront.CachePolicy.CACHING_DISABLED,
         viewerProtocolPolicy:
-          cdk.aws_cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+          cdk.aws_cloudfront.ViewerProtocolPolicy.HTTPS_ONLY,
       },
       additionalBehaviors: {
         ['/agent/*']: {
-          origin: new cdk.aws_cloudfront_origins.FunctionUrlOrigin(fn.addFunctionUrl({
-            authType: cdk.aws_lambda.FunctionUrlAuthType.AWS_IAM,
-            invokeMode: cdk.aws_lambda.InvokeMode.RESPONSE_STREAM,
-          }),
-          {
-            originId: 'lambda',
-            readTimeout: cdk.Duration.minutes(1),
-          }),
-          viewerProtocolPolicy: cdk.aws_cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+          origin: cdk.aws_cloudfront_origins.FunctionUrlOrigin.withOriginAccessControl(
+            functionUrl,
+            {
+              originId: 'lambda',
+              readTimeout: cdk.Duration.minutes(1),
+              originAccessControl: lambdaOac,
+            },
+          ),
+          viewerProtocolPolicy: cdk.aws_cloudfront.ViewerProtocolPolicy.HTTPS_ONLY,
           cachePolicy: cdk.aws_cloudfront.CachePolicy.CACHING_DISABLED,
           allowedMethods: cdk.aws_cloudfront.AllowedMethods.ALLOW_ALL,
           originRequestPolicy: cdk.aws_cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
@@ -212,9 +218,10 @@ export class PlatformStack extends cdk.Stack {
         },
       },
       httpVersion: cdk.aws_cloudfront.HttpVersion.HTTP2_AND_3,
+      priceClass: cdk.aws_cloudfront.PriceClass.PRICE_CLASS_200,
     });
 
-    // fn.addEnvironment('ALLOW_CORS_ORIGIN', `https://${distribution.distributionDomainName}`);
+    compileClientBundles({});
 
     const deployRole = new cdk.aws_iam.Role(this, 'DeployWebsiteRole', {
       roleName: `${s3bucket.bucketName}-deploy-role`,
@@ -241,6 +248,7 @@ export class PlatformStack extends cdk.Stack {
       retainOnDelete: false,
       role: deployRole,
     });
+
 
   }
 }

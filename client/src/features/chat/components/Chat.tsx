@@ -1,7 +1,9 @@
-import { createSignal, For, onMount } from 'solid-js';
+import { Component, createSignal, For, onMount, Show } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { SolidMarkdown } from 'solid-markdown';
 import sha256 from 'crypto-js/sha256';
+import { MastraClient } from '@mastra/client-js';
+import { parseDataStreamPart } from '@ai-sdk/ui-utils';
 
 interface ChatMessage {
   id: number;
@@ -10,12 +12,15 @@ interface ChatMessage {
   streaming?: boolean;
 }
 
-function Chat() {
+export const Chat: Component = () => {
   // 履歴を管理するstore
   const [history, setHistory] = createStore<ChatMessage[]>([]);
 
   // 現在の表示テキストと入力
   const [input, setInput] = createSignal('');
+
+  // エラーメッセージ
+  const [error, setError] = createSignal('');
 
   const [isLoading, setIsLoading] = createSignal(false);
 
@@ -61,7 +66,13 @@ function Chat() {
       return;
     };
 
-    const chunk = decoder.decode(value, { stream: true });
+    const stream = decoder.decode(value, { stream: true })
+      .split('\n')
+      .filter(line => line !== '')
+      .map(parseDataStreamPart)
+      .filter(({type}) => type === 'text')
+      .map(({value}) => value);
+    const chunk = stream.length > 0 ? stream.reduce((acc, cur) => `${(acc ?? '')}${cur}`) : '';
 
     // リアルタイムでメッセージを更新
     setHistory(prev =>
@@ -79,22 +90,24 @@ function Chat() {
     await pipeStream(reader, id, decoder);
   }
 
+
   // ストリーミングフェッチ関数
   async function fetchStreamingContent(input: string) {
     const body = JSON.stringify({ messages: [ input ] });
     const hash = sha256(body);
-    const endpoint = import.meta.env.VITE_API_URL ?? '';
-    const response = await fetch(
-      `${endpoint}/agent/api`,
-      {
-        method: 'post',
-        body,
-        headers: {
-          'Content-Type': 'application/json',
-          'x-amz-content-sha256': hash.toString(),
-        },
+    const endpoint = import.meta.env.VITE_API_URL ?? '/agent';
+    const client = new MastraClient({
+      baseUrl: endpoint,
+      headers: {
+        'x-amz-content-sha256': hash.toString(),
       },
-    );
+    });
+    const agent = client.getAgent('weatherAgent');
+
+
+    const response = await agent.stream({
+      messages: [input],
+    });
 
     if (!response.body) {
       throw new Error('ストリーミングに失敗');
@@ -102,15 +115,28 @@ function Chat() {
 
     setIsLoading(false);
 
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
-
     const lastAssistantMessageId = Math.max(
       ...history.map(m => m.id),
       0,
     );
 
     const assistantMessageId = lastAssistantMessageId + 1;
+
+    // await response.processDataStream({
+    //   onTextPart(value) {
+    //     addMessageAndScroll({
+    //       id: assistantMessageId,
+    //       type: 'system',
+    //       message: value,
+    //     });
+    //   },
+    //   onFinishMessagePart(value) {
+
+    //   }
+    // });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
 
     // 空のシステムメッセージを追加
     addMessageAndScroll({
@@ -144,7 +170,8 @@ function Chat() {
       setIsLoading(true);
       await fetchStreamingContent(question);
     } catch (e) {
-      console.error(e);
+      setError(() => e.toString());
+      setIsLoading(false);
     }
   }
 
@@ -163,6 +190,9 @@ function Chat() {
         <div class='loading'>
           {isLoading() ? '考え中...' : ''}
         </div>
+        <Show when={error()}>
+          <div class='error'>{error()}</div>
+        </Show>
       </div>
 
       <div id='input-bar'>
@@ -185,4 +215,4 @@ function Chat() {
   );
 };
 
-export default Chat;
+// export default Chat;

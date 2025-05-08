@@ -58,6 +58,8 @@ jobs:
       working-directory: ./platform
       run: |
         cdk deploy \
+          -c account=$(aws sts get-caller-identity --query 'Account' --output text) \
           -c langfuse-endpoint=${{ secrets.LANGFUSE_ENDPOINT }} \
           -c langfuse-public-key=${{ secrets.LANGFUSE_PUBLIC_KEY }} \
-          -c langfuse-secret-key=${{ secrets.LANGFUSE_SECRET_KEY }}
+          -c langfuse-secret-key=${{ secrets.LANGFUSE_SECRET_KEY }} \
+          --all
