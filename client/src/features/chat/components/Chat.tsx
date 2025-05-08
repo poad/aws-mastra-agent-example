@@ -10,7 +10,7 @@ interface ChatMessage {
   streaming?: boolean;
 }
 
-export function Chat() {
+function Chat() {
   // 履歴を管理するstore
   const [history, setHistory] = createStore<ChatMessage[]>([]);
 
@@ -184,3 +184,5 @@ export function Chat() {
     </div>
   );
 };
+
+export default Chat;
