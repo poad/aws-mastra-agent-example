@@ -18,6 +18,7 @@ updates:
   - package-ecosystem: npm
     directories:
       - '/'
+      - '/client/'
       - '/platform/'
     schedule:
       interval: daily
