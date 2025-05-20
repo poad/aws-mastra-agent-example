@@ -89,32 +89,6 @@ export class PlatformStack extends cdk.Stack {
       },
       timeout: cdk.Duration.seconds(30),
       memorySize: 256,
-      // bundling: {
-      //   commandHooks: {
-      //     afterBundling: (inputDir: string, outputDir: string) => [
-      //       `cp -pR ${inputDir}/platform/.mastra/output ${outputDir}/.mastra/`,
-      //       `cp ${inputDir}/platform/src/run.sh ${outputDir}`,
-      //     ],
-      //     beforeInstall(): string[] {
-      //       return [''];
-      //     },
-      //     beforeBundling(): string[] {
-      //       return [''];
-      //     },
-      //   },
-      //   externalModules: [
-      //   // Lambda レイヤーで提供されるモジュールは除外できる（オプション）
-      //     '/opt/nodejs/node_modules/aws-lambda-web-adapter',
-
-      //     'dotenv',
-      //   ],
-      //   nodeModules: ['express'], // 依存関係を指定
-      //   // minify: true, // コードの最小化
-      //   sourceMap: true, // ソースマップを有効化（デバッグ用）
-      //   keepNames: true,
-      //   format: cdk.aws_lambda_nodejs.OutputFormat.ESM,
-      //   banner: 'import { createRequire } from \'module\';const require = createRequire(import.meta.url);',
-      // },
       loggingFormat: cdk.aws_lambda.LoggingFormat.JSON,
       role: new cdk.aws_iam.Role(this, 'FunctionExecutionRole', {
         assumedBy: new cdk.aws_iam.ServicePrincipal('lambda.amazonaws.com'),
@@ -142,6 +116,79 @@ export class PlatformStack extends cdk.Stack {
       authType: cdk.aws_lambda.FunctionUrlAuthType.AWS_IAM,
       invokeMode: cdk.aws_lambda.InvokeMode.RESPONSE_STREAM,
     });
+
+    const webAdapter = cdk.aws_lambda.LayerVersion.fromLayerVersionArn(this, 'LayerVersion', `arn:aws:lambda:${this.region}:753240598075:layer:LambdaAdapterLayerArm64:25`);
+
+    const mcpFunctionName = 'mastra-agent-mcp-server';
+    const mcpLogGroup = new cdk.aws_logs.LogGroup(this, 'McpLogGroup', {
+      logGroupName: `/aws/lambda/${mcpFunctionName}`,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      retention: cdk.aws_logs.RetentionDays.ONE_DAY,
+    });
+    const mcp = new cdk.aws_lambda_nodejs.NodejsFunction(this, 'McpServerLambda', {
+      functionName: mcpFunctionName,
+      architecture: cdk.aws_lambda.Architecture.ARM_64,
+      runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
+      entry: './lambda/mcp-server/index.ts',
+      handler: 'run.sh',
+      retryAttempts: 0,
+      layers: [webAdapter],
+      logGroup: mcpLogGroup,
+      environment: {
+        // Lambda Web Adapter の設定
+        AWS_LAMBDA_EXEC_WRAPPER: '/opt/bootstrap',
+
+        // 設定するとエラー時に全て HTTP 500 になるため、デフォルトのままにしておく
+        // AWS_LWA_INVOKE_MODE: 'response_stream',
+
+        AWS_LWA_PORT: '8080',
+        PORT: '8080',
+        RUST_LOG: 'info',
+      },
+      timeout: cdk.Duration.seconds(30),
+      memorySize: 128,
+      bundling: {
+        // No externalModules since we want to bundle everything
+        nodeModules: [
+          '@modelcontextprotocol/sdk',
+          'hono',
+          'fetch-to-node',
+          'zod',
+        ],
+        commandHooks: {
+          afterBundling: (inputDir: string, outputDir: string) => [
+            `cp ${inputDir}/platform/lambda/mcp-server/run.sh ${outputDir}`,
+          ],
+          beforeInstall(): string[] {
+            return [''];
+          },
+          beforeBundling(): string[] {
+            return [''];
+          },
+        },
+        externalModules: [
+          // Lambda レイヤーで提供されるモジュールは除外できる（オプション）
+          '/opt/nodejs/node_modules/aws-lambda-web-adapter',
+
+          'dotenv',
+        ],
+        // minify: true, // コードの最小化
+        sourceMap: true, // ソースマップを有効化（デバッグ用）
+        keepNames: true,
+        format: cdk.aws_lambda_nodejs.OutputFormat.ESM,
+        target: 'node22', // Target Node.js 22.x
+        banner: 'import { createRequire } from \'module\';const require = createRequire(import.meta.url);',
+      },
+      loggingFormat: cdk.aws_lambda.LoggingFormat.JSON,
+      applicationLogLevelV2: cdk.aws_lambda.ApplicationLogLevel.TRACE,
+      systemLogLevelV2: cdk.aws_lambda.SystemLogLevel.INFO,
+    });
+
+    const mcpFunctionUrl = mcp.addFunctionUrl({
+      authType: cdk.aws_lambda.FunctionUrlAuthType.AWS_IAM,
+      invokeMode: cdk.aws_lambda.InvokeMode.RESPONSE_STREAM,
+    });
+
 
 
     // CloudFront Functionリソースの定義
@@ -201,7 +248,37 @@ export class PlatformStack extends cdk.Stack {
           originRequestPolicy: cdk.aws_cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
           responseHeadersPolicy: new cdk.aws_cloudfront.ResponseHeadersPolicy(
             this,
-            'ResponseHeadersPolicy',
+            'AgentResponseHeadersPolicy',
+            {
+              corsBehavior: {
+                accessControlAllowOrigins: [
+                  'http://localhost:4173',
+                  'http://localhost:5173',
+                ],
+                accessControlAllowHeaders: ['*'],
+                accessControlAllowMethods: ['ALL'],
+                accessControlAllowCredentials: false,
+                originOverride: true,
+              },
+            },
+          ),
+        },
+        ['/mcp/*']: {
+          origin: cdk.aws_cloudfront_origins.FunctionUrlOrigin.withOriginAccessControl(
+            mcpFunctionUrl,
+            {
+              originId: 'mcp-lambda',
+              readTimeout: cdk.Duration.minutes(1),
+              originAccessControl: lambdaOac,
+            },
+          ),
+          viewerProtocolPolicy: cdk.aws_cloudfront.ViewerProtocolPolicy.HTTPS_ONLY,
+          cachePolicy: cdk.aws_cloudfront.CachePolicy.CACHING_DISABLED,
+          allowedMethods: cdk.aws_cloudfront.AllowedMethods.ALLOW_ALL,
+          originRequestPolicy: cdk.aws_cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
+          responseHeadersPolicy: new cdk.aws_cloudfront.ResponseHeadersPolicy(
+            this,
+            'McpResponseHeadersPolicy',
             {
               corsBehavior: {
                 accessControlAllowOrigins: [
