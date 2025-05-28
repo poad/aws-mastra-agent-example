@@ -21,7 +21,7 @@ export const mastra = new Mastra({
   }),
   server: {
     port: process.env.PORT ? Number.parseInt(process.env.PORT) : undefined,
-    host: '0.0.0.0',
+    host: process.env.AWS_LAMBDA_EXEC_WRAPPER ? '0.0.0.0' : 'localhost',
     timeout: 10000,
     cors,
   },
