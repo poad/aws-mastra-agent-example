@@ -12,6 +12,7 @@ permissions:
 jobs:
   pull-request-auto-merge:
     runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
     steps:
       - uses: actions/checkout@v4
 

@@ -1,6 +1,6 @@
 import { bedrock } from '@ai-sdk/amazon-bedrock';
 import { Agent } from '@mastra/core/agent';
-import { weatherTool } from '../tools';
+import { mcp } from '../mcp';
 
 const BEDROCK_MODEL = process.env.BEDROCK_MODEL ?? 'us.amazon.nova-premier-v1:0';
 
@@ -19,5 +19,5 @@ export const weatherAgent = new Agent({
       現在の天気データを取得するには、weatherToolを使用してください。
 `,
   model: bedrock(BEDROCK_MODEL),
-  tools: { weatherTool },
+  tools: { ...await mcp.getTools() },
 });
