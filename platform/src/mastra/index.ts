@@ -1,6 +1,6 @@
 
 import { Mastra } from '@mastra/core/mastra';
-import { createLogger } from '@mastra/core/logger';
+import { ConsoleLogger } from '@mastra/core/logger';
 import { LibSQLStore } from '@mastra/libsql';
 import { LangfuseExporter } from 'langfuse-vercel';
 
@@ -25,7 +25,7 @@ export const mastra = new Mastra({
     timeout: 10000,
     cors,
   },
-  logger: createLogger({
+  logger: new ConsoleLogger({
     name: 'Mastra',
     level: 'info',
   }),
