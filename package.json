@@ -9,10 +9,10 @@
     "build": "pnpm -r --if-present --parallel build"
   },
   "devDependencies": {
-    "pnpm": "^10.11.1"
+    "pnpm": "^10.12.1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.11.1"
+  "packageManager": "pnpm@10.12.1"
 }

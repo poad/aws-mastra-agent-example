@@ -1,6 +1,6 @@
 import { MCPClient } from '@mastra/mcp';
 import { GetParameterCommand, SSMClient } from '@aws-sdk/client-ssm';
-import sha256 from 'crypto-js/sha256';
+import sha256 from 'crypto-js/sha256.js';
 
 const getMcpServerEndpointUrl = async () => {
   if (!process.env.MCP_SERVER_ENDPOINT_URL) {
