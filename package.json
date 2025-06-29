@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "pnpm -r --if-present --parallel lint",
     "lint-fix": "pnpm -r --if-present --parallel lint-fix",
-    "build": "pnpm -r --if-present --parallel build"
+    "build": "pnpm -r --if-present --parallel build",
+    "clean": "pnpm -r --if-present --parallel clean"
   },
   "devDependencies": {
     "pnpm": "^10.12.4"

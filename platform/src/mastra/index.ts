@@ -1,7 +1,6 @@
 
 import { Mastra } from '@mastra/core/mastra';
 import { ConsoleLogger } from '@mastra/core/logger';
-import { LibSQLStore } from '@mastra/libsql';
 import { LangfuseExporter } from 'langfuse-vercel';
 
 import { weatherAgent } from './agents';
@@ -15,10 +14,6 @@ const cors = {
 
 export const mastra = new Mastra({
   agents: { weatherAgent },
-  storage: new LibSQLStore({
-    // stores telemetry, evals, ... into memory storage, if it needs to persist, change to file:../mastra.db
-    url: ':memory:',
-  }),
   server: {
     port: process.env.PORT ? Number.parseInt(process.env.PORT) : undefined,
     host: process.env.AWS_LAMBDA_EXEC_WRAPPER ? '0.0.0.0' : 'localhost',
