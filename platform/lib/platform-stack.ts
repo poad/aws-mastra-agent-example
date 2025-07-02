@@ -59,8 +59,6 @@ export class PlatformStack extends cdk.Stack {
       }),
     );
 
-    const webAdapter = cdk.aws_lambda.LayerVersion.fromLayerVersionArn(this, 'LayerVersion', `arn:aws:lambda:${this.region}:753240598075:layer:LambdaAdapterLayerArm64:25`);
-
     const mcpFunctionName = 'mastra-agent-mcp-server';
     const mcpLogGroup = new cdk.aws_logs.LogGroup(this, 'McpLogGroup', {
       logGroupName: `/aws/lambda/${mcpFunctionName}`,
@@ -73,23 +71,8 @@ export class PlatformStack extends cdk.Stack {
       architecture: cdk.aws_lambda.Architecture.ARM_64,
       runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
       entry: './lambda/mcp-server/index.ts',
-      handler: 'run.sh',
       retryAttempts: 0,
-      layers: [webAdapter],
       logGroup: mcpLogGroup,
-      environment: {
-        // Lambda Web Adapter の設定
-        AWS_LAMBDA_EXEC_WRAPPER: '/opt/bootstrap',
-
-        // 設定するとエラー時に全て HTTP 500 になるため、デフォルトのままにしておく
-        // AWS_LWA_INVOKE_MODE: 'response_stream',
-
-        AWS_LWA_REMOVE_BASE_PATH: '/v1',
-
-        AWS_LWA_PORT: '8080',
-        PORT: '8080',
-        RUST_LOG: 'info',
-      },
       timeout: cdk.Duration.seconds(30),
       memorySize: 128,
       bundling: {
@@ -97,25 +80,11 @@ export class PlatformStack extends cdk.Stack {
         nodeModules: [
           '@modelcontextprotocol/sdk',
           'hono',
-          'fetch-to-node',
           'zod',
         ],
-        commandHooks: {
-          afterBundling: (inputDir: string, outputDir: string) => [
-            `cp ${inputDir}/platform/lambda/mcp-server/run.sh ${outputDir}`,
-          ],
-          beforeInstall(): string[] {
-            return [''];
-          },
-          beforeBundling(): string[] {
-            return [''];
-          },
-        },
         externalModules: [
-          // Lambda レイヤーで提供されるモジュールは除外できる（オプション）
-          '/opt/nodejs/node_modules/aws-lambda-web-adapter',
-
           'dotenv',
+          '@hono/node-server',
         ],
         // minify: true, // コードの最小化
         sourceMap: true, // ソースマップを有効化（デバッグ用）
@@ -297,35 +266,6 @@ export class PlatformStack extends cdk.Stack {
             },
           ),
         },
-        // ['/mcp/*']: {
-        //   origin: new cdk.aws_cloudfront_origins.FunctionUrlOrigin(
-        //     mcpFunctionUrl,
-        //     {
-        //       originId: 'mcp-lambda',
-        //       readTimeout: cdk.Duration.minutes(1),
-        //     },
-        //   ),
-        //   viewerProtocolPolicy: cdk.aws_cloudfront.ViewerProtocolPolicy.HTTPS_ONLY,
-        //   cachePolicy: cdk.aws_cloudfront.CachePolicy.CACHING_DISABLED,
-        //   allowedMethods: cdk.aws_cloudfront.AllowedMethods.ALLOW_ALL,
-        //   originRequestPolicy: cdk.aws_cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
-        //   responseHeadersPolicy: new cdk.aws_cloudfront.ResponseHeadersPolicy(
-        //     this,
-        //     'McpResponseHeadersPolicy',
-        //     {
-        //       corsBehavior: {
-        //         accessControlAllowOrigins: [
-        //           'http://localhost:4173',
-        //           'http://localhost:5173',
-        //         ],
-        //         accessControlAllowHeaders: ['*'],
-        //         accessControlAllowMethods: ['ALL'],
-        //         accessControlAllowCredentials: false,
-        //         originOverride: true,
-        //       },
-        //     },
-        //   ),
-        // },
       },
       httpVersion: cdk.aws_cloudfront.HttpVersion.HTTP2_AND_3,
       priceClass: cdk.aws_cloudfront.PriceClass.PRICE_CLASS_200,
