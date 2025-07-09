@@ -10,10 +10,10 @@
     "clean": "pnpm -r --if-present --parallel clean"
   },
   "devDependencies": {
-    "pnpm": "^10.12.4"
+    "pnpm": "^10.13.1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.12.4"
+  "packageManager": "pnpm@10.13.1"
 }
