@@ -2,6 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { compileCloudFrontBundles } from './process/setup-function';
 import { compileClientBundles } from './process/setup-client';
+import * as ecrdeploy from 'cdk-ecr-deployment';
 
 function createLangfuseCredentials({
   langfuseEndpoint,
@@ -125,12 +126,34 @@ export class PlatformStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       retention: cdk.aws_logs.RetentionDays.ONE_DAY,
     });
+
+    const repo = new cdk.aws_ecr.Repository(this, 'EcrRepository', {
+      repositoryName: 'mastra-agent-example',
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      lifecycleRules: [
+        {
+          maxImageCount: 1, // Keep only the latest image
+        },
+      ],
+    });
+
+    const assets = new cdk.aws_ecr_assets.DockerImageAsset(this, 'EcrImageAssets', {
+      directory: '.',
+      platform: cdk.aws_ecr_assets.Platform.LINUX_ARM64,
+    });
+
+    const deployment = new ecrdeploy.ECRDeployment(this, 'DeployDockerImage', {
+      src: new ecrdeploy.DockerImageName(assets.imageUri),
+      dest: new ecrdeploy.DockerImageName(`${this.account}.dkr.ecr.${this.region}.amazonaws.com/${repo.repositoryName}:latest`),
+      imageArch: ['arm64'],
+    });
+
+
     const fn = new cdk.aws_lambda.DockerImageFunction(this, 'Lambda', {
       functionName,
       architecture: cdk.aws_lambda.Architecture.ARM_64,
-      code: cdk.aws_lambda.DockerImageCode.fromImageAsset('.', {
-        platform: cdk.aws_ecr_assets.Platform.LINUX_ARM64,
-        // target: 'dev'
+      code: cdk.aws_lambda.DockerImageCode.fromEcr(repo, {
+        tag: assets.imageUri.split(':')[1], // Use the tag from the Docker image
       }),
       retryAttempts: 0,
       logGroup,
@@ -187,6 +210,8 @@ export class PlatformStack extends cdk.Stack {
         },
       }),
     });
+
+    fn.node.addDependency(deployment);
 
     const functionUrl = fn.addFunctionUrl({
       authType: cdk.aws_lambda.FunctionUrlAuthType.AWS_IAM,

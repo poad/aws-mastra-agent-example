@@ -2,6 +2,7 @@ packages:
   - .
   - ./client
   - ./platform
+  - ./platform/function
 
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'

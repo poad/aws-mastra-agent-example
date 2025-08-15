@@ -1,8 +1,9 @@
 import { bedrock } from '@ai-sdk/amazon-bedrock';
+// eslint-disable-next-line import/no-unresolved
 import { Agent } from '@mastra/core/agent';
 import { mcp } from '../mcp';
 
-const BEDROCK_MODEL = process.env.BEDROCK_MODEL ?? 'us.amazon.nova-premier-v1:0';
+const BEDROCK_MODEL = process.env.BEDROCK_MODEL ?? 'openai.gpt-oss-120b-1:0';
 
 export const weatherAgent = new Agent({
   name: 'Weather Agent',
