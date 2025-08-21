@@ -106,17 +106,17 @@ importers:
         specifier: ^2.25.1
         version: 2.25.1
       '@aws-sdk/client-dynamodb':
-        specifier: ^3.868.0
-        version: 3.868.0
+        specifier: ^3.872.0
+        version: 3.872.0
       '@aws-sdk/client-ssm':
-        specifier: ^3.864.0
-        version: 3.864.0
+        specifier: ^3.872.0
+        version: 3.872.0
       '@aws-sdk/lib-dynamodb':
-        specifier: ^3.868.0
-        version: 3.868.0(@aws-sdk/client-dynamodb@3.868.0)
+        specifier: ^3.872.0
+        version: 3.872.0(@aws-sdk/client-dynamodb@3.872.0)
       '@aws-sdk/util-dynamodb':
-        specifier: ^3.868.0
-        version: 3.868.0(@aws-sdk/client-dynamodb@3.868.0)
+        specifier: ^3.872.0
+        version: 3.872.0(@aws-sdk/client-dynamodb@3.872.0)
       '@mastra/core':
         specifier: ^0.13.2
         version: 0.13.2(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76)
@@ -133,8 +133,8 @@ importers:
         specifier: ^1.17.3
         version: 1.17.3
       aws-cdk-lib:
-        specifier: ^2.211.0
-        version: 2.211.0(constructs@10.4.2)
+        specifier: ^2.212.0
+        version: 2.212.0(constructs@10.4.2)
       constructs:
         specifier: ^10.4.2
         version: 10.4.2
@@ -198,7 +198,7 @@ importers:
         version: 2.1025.0
       cdk-ecr-deployment:
         specifier: ^4.0.1
-        version: 4.0.1(aws-cdk-lib@2.211.0(constructs@10.4.2))(constructs@10.4.2)
+        version: 4.0.1(aws-cdk-lib@2.212.0(constructs@10.4.2))(constructs@10.4.2)
       esbuild:
         specifier: ^0.25.9
         version: 0.25.9
@@ -390,16 +390,16 @@ packages:
       '@middy/core':
         optional: true
 
-  '@aws-sdk/client-dynamodb@3.868.0':
-    resolution: {integrity: sha512-a2uKLRplH3vTHgTHr+MaZ1YH0Sy0yVHK9rhM/drktxgXehMf4p7dZtt783c9SEupZvo46LxXryvwifoUdL4nRg==}
+  '@aws-sdk/client-dynamodb@3.872.0':
+    resolution: {integrity: sha512-zO0E0of0Y1CVVvznd0kgndq3YSI62NoCt/OBktS6PUhYQTCsBPnQ60fTtCYDacVAihamHSOrsonIQfHosLKkgA==}
     engines: {node: '>=18.0.0'}
 
-  '@aws-sdk/client-ssm@3.864.0':
-    resolution: {integrity: sha512-z7WYCX3MdMNlNhmVtW9NEtO3q36Fbu3g86IHbaB5hcnawnh84si1nC69g90phgB2lVonydGQzMTJWlxGYLmpRA==}
+  '@aws-sdk/client-ssm@3.872.0':
+    resolution: {integrity: sha512-PEYde4p7dfVhr+zuAQ+EHkUjc8q/uUc/mQRb8CzlVS08l9QM3peKmHQYs2Yw7ZheeDQRbvMoeAidX/H11aGnrA==}
     engines: {node: '>=18.0.0'}
 
-  '@aws-sdk/client-sso@3.864.0':
-    resolution: {integrity: sha512-THiOp0OpQROEKZ6IdDCDNNh3qnNn/kFFaTSOiugDpgcE5QdsOxh1/RXq7LmHpTJum3cmnFf8jG59PHcz9Tjnlw==}
+  '@aws-sdk/client-sso@3.872.0':
+    resolution: {integrity: sha512-ZCiZk4TslnhhcFbo95HfNxwtNBXJ5jE/WxhJrFJPMJfAlSuaMu3H3LdfVwgzWs9vBtk2yTRX3gF+clKtZb6D2Q==}
     engines: {node: '>=18.0.0'}
 
   '@aws-sdk/core@3.864.0':
@@ -414,20 +414,20 @@ packages:
     resolution: {integrity: sha512-E/RFVxGTuGnuD+9pFPH2j4l6HvrXzPhmpL8H8nOoJUosjx7d4v93GJMbbl1v/fkDLqW9qN4Jx2cI6PAjohA6OA==}
     engines: {node: '>=18.0.0'}
 
-  '@aws-sdk/credential-provider-ini@3.864.0':
-    resolution: {integrity: sha512-PlxrijguR1gxyPd5EYam6OfWLarj2MJGf07DvCx9MAuQkw77HBnsu6+XbV8fQriFuoJVTBLn9ROhMr/ROAYfUg==}
+  '@aws-sdk/credential-provider-ini@3.872.0':
+    resolution: {integrity: sha512-OItc+c6Yu5UUTmHVXpcqiQEkOIAZMWpzM9iXlz+CtzE0njft2obvGtIWQgZl7yVuaROtin4YwPAJscWmKhsb/A==}
     engines: {node: '>=18.0.0'}
 
-  '@aws-sdk/credential-provider-node@3.864.0':
-    resolution: {integrity: sha512-2BEymFeXURS+4jE9tP3vahPwbYRl0/1MVaFZcijj6pq+nf5EPGvkFillbdBRdc98ZI2NedZgSKu3gfZXgYdUhQ==}
+  '@aws-sdk/credential-provider-node@3.872.0':
+    resolution: {integrity: sha512-VpzTBfd0a19+5y7obIXzkhjC60yHsom7JNCqymWft+eJJN/6I817ti/59vtwdtujmG/UpLtszy7YGGo8V9oF1g==}
     engines: {node: '>=18.0.0'}
 
   '@aws-sdk/credential-provider-process@3.864.0':
     resolution: {integrity: sha512-Zxnn1hxhq7EOqXhVYgkF4rI9MnaO3+6bSg/tErnBQ3F8kDpA7CFU24G1YxwaJXp2X4aX3LwthefmSJHwcVP/2g==}
     engines: {node: '>=18.0.0'}
 
-  '@aws-sdk/credential-provider-sso@3.864.0':
-    resolution: {integrity: sha512-UPyPNQbxDwHVGmgWdGg9/9yvzuedRQVF5jtMkmP565YX9pKZ8wYAcXhcYdNPWFvH0GYdB0crKOmvib+bmCuwkw==}
+  '@aws-sdk/credential-provider-sso@3.872.0':
+    resolution: {integrity: sha512-+wmvQe1D3GrgfHRvmupvSTmt76ynNrWLNm17Bg1ofeYKFThlPWUNhwZ2rFXwZadksQfdmwfPYRxjo8Eg4xogWA==}
     engines: {node: '>=18.0.0'}
 
   '@aws-sdk/credential-provider-web-identity@3.864.0':
@@ -438,11 +438,11 @@ packages:
     resolution: {integrity: sha512-TQVDkA/lV6ua75ELZaichMzlp6x7tDa1bqdy/+0ZftmODPtKXuOOEcJxmdN7Ui/YRo1gkRz2D9txYy7IlNg1Og==}
     engines: {node: '>=18.0.0'}
 
-  '@aws-sdk/lib-dynamodb@3.868.0':
-    resolution: {integrity: sha512-VIdISBhlWDIaHaMF/Cg+xYdIct6nsc1oFV+LomW/Ebjq8J14yieZWnv10Iddy/YYGE0hS214La5KCaQBQ75Trw==}
+  '@aws-sdk/lib-dynamodb@3.872.0':
+    resolution: {integrity: sha512-PwLPshDX8BUR8uilozkaen+6gLTCQQSFdkbSQpqHfZFOs4TXT/JxR7FSAyc/999VG63qLp/qHUzjlZa9x8GqdA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      '@aws-sdk/client-dynamodb': ^3.868.0
+      '@aws-sdk/client-dynamodb': ^3.872.0
 
   '@aws-sdk/middleware-endpoint-discovery@3.862.0':
     resolution: {integrity: sha512-43KnrSlzsa6/locegW9SLe/kMv51PPPAslDbBuLVtLcFUNWuCE7wgKTTzMPeA+NJQHKuJTFRR2TLKPYEs+4VJA==}
@@ -480,11 +480,11 @@ packages:
     resolution: {integrity: sha512-Bei+RL0cDxxV+lW2UezLbCYYNeJm6Nzee0TpW0FfyTRBhH9C1XQh4+x+IClriXvgBnRquTMMYsmJfvx8iyLKrg==}
     engines: {node: '>=18.0.0'}
 
-  '@aws-sdk/util-dynamodb@3.868.0':
-    resolution: {integrity: sha512-Y+SBOBtAcLdRbBv8T2WtVOVYvTHxH23M0Ssm9WPQgJXiYtBDHvB4i1pgw/ECu/F4KRHKrkxzn4lwrF2XlryldA==}
+  '@aws-sdk/util-dynamodb@3.872.0':
+    resolution: {integrity: sha512-KDO/goFrUqmyogVIeXZp/PINktKyzKRjfyI1zb6cECLOlxmjC8ZApZaBLD5U5WKhYMqsnRqC7WZOtt/3b++pLg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      '@aws-sdk/client-dynamodb': ^3.868.0
+      '@aws-sdk/client-dynamodb': ^3.872.0
 
   '@aws-sdk/util-endpoints@3.862.0':
     resolution: {integrity: sha512-eCZuScdE9MWWkHGM2BJxm726MCmWk/dlHjOKvkM0sN1zxBellBMw5JohNss1Z8/TUmnW2gb9XHTOiHuGjOdksA==}
@@ -1541,33 +1541,33 @@ packages:
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
 
-  '@redis/bloom@5.8.1':
-    resolution: {integrity: sha512-hJOJr/yX6BttnyZ+nxD3Ddiu2lPig4XJjyAK1v7OSHOJNUTfn3RHBryB9wgnBMBdkg9glVh2AjItxIXmr600MA==}
+  '@redis/bloom@5.8.2':
+    resolution: {integrity: sha512-855DR0ChetZLarblio5eM0yLwxA9Dqq50t8StXKp5bAtLT0G+rZ+eRzzqxl37sPqQKjUudSYypz55o6nNhbz0A==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@redis/client': ^5.8.1
+      '@redis/client': ^5.8.2
 
-  '@redis/client@5.8.1':
-    resolution: {integrity: sha512-hD5Tvv7G0t8b3w8ao3kQ4jEPUmUUC6pqA18c8ciYF5xZGfUGBg0olQHW46v6qSt4O5bxOuB3uV7pM6H5wEjBwA==}
+  '@redis/client@5.8.2':
+    resolution: {integrity: sha512-WtMScno3+eBpTac1Uav2zugXEoXqaU23YznwvFgkPwBQVwEHTDgOG7uEAObtZ/Nyn8SmAMbqkEubJaMOvnqdsQ==}
     engines: {node: '>= 18'}
 
-  '@redis/json@5.8.1':
-    resolution: {integrity: sha512-kyvM8Vn+WjJI++nRsIoI9TbdfCs1/TgD0Hp7Z7GiG6W4IEBzkXGQakli+R5BoJzUfgh7gED2fkncYy1NLprMNg==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@redis/client': ^5.8.1
-
-  '@redis/search@5.8.1':
-    resolution: {integrity: sha512-CzuKNTInTNQkxqehSn7QiYcM+th+fhjQn5ilTvksP1wPjpxqK0qWt92oYg3XZc3tO2WuXkqDvTujc4D7kb6r/A==}
+  '@redis/json@5.8.2':
+    resolution: {integrity: sha512-uxpVfas3I0LccBX9rIfDgJ0dBrUa3+0Gc8sEwmQQH0vHi7C1Rx1Qn8Nv1QWz5bohoeIXMICFZRcyDONvum2l/w==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@redis/client': ^5.8.1
+      '@redis/client': ^5.8.2
 
-  '@redis/time-series@5.8.1':
-    resolution: {integrity: sha512-klvdR96U9oSOyqvcectoAGhYlMOnMS3I5UWUOgdBn1buMODiwM/E4Eds7gxldKmtowe4rLJSF1CyIqyZTjy8Ow==}
+  '@redis/search@5.8.2':
+    resolution: {integrity: sha512-cNv7HlgayavCBXqPXgaS97DRPVWFznuzsAmmuemi2TMCx5scwLiP50TeZvUS06h/MG96YNPe6A0Zt57yayfxwA==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@redis/client': ^5.8.1
+      '@redis/client': ^5.8.2
+
+  '@redis/time-series@5.8.2':
+    resolution: {integrity: sha512-g2NlHM07fK8H4k+613NBsk3y70R2JIM2dPMSkhIjl2Z17SYvaYKdusz85d7VYOrZBWtDrHV/WD2E3vGu+zni8A==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      '@redis/client': ^5.8.2
 
   '@rollup/plugin-alias@5.1.1':
     resolution: {integrity: sha512-PR9zDb+rOzkRb2VD+EuKB7UC41vU5DIwZ5qqCpk0KJudcWAyi8rvYOhS7+L5aZCspw1stTViLgN5v6FF1p5cgQ==}
@@ -1623,103 +1623,103 @@ packages:
       rollup:
         optional: true
 
-  '@rollup/rollup-android-arm-eabi@4.46.3':
-    resolution: {integrity: sha512-UmTdvXnLlqQNOCJnyksjPs1G4GqXNGW1LrzCe8+8QoaLhhDeTXYBgJ3k6x61WIhlHX2U+VzEJ55TtIjR/HTySA==}
+  '@rollup/rollup-android-arm-eabi@4.46.4':
+    resolution: {integrity: sha512-B2wfzCJ+ps/OBzRjeds7DlJumCU3rXMxJJS1vzURyj7+KBHGONm7c9q1TfdBl4vCuNMkDvARn3PBl2wZzuR5mw==}
     cpu: [arm]
     os: [android]
 
-  '@rollup/rollup-android-arm64@4.46.3':
-    resolution: {integrity: sha512-8NoxqLpXm7VyeI0ocidh335D6OKT0UJ6fHdnIxf3+6oOerZZc+O7r+UhvROji6OspyPm+rrIdb1gTXtVIqn+Sg==}
+  '@rollup/rollup-android-arm64@4.46.4':
+    resolution: {integrity: sha512-FGJYXvYdn8Bs6lAlBZYT5n+4x0ciEp4cmttsvKAZc/c8/JiPaQK8u0c/86vKX8lA7OY/+37lIQSe0YoAImvBAA==}
     cpu: [arm64]
     os: [android]
 
-  '@rollup/rollup-darwin-arm64@4.46.3':
-    resolution: {integrity: sha512-csnNavqZVs1+7/hUKtgjMECsNG2cdB8F7XBHP6FfQjqhjF8rzMzb3SLyy/1BG7YSfQ+bG75Ph7DyedbUqwq1rA==}
+  '@rollup/rollup-darwin-arm64@4.46.4':
+    resolution: {integrity: sha512-/9qwE/BM7ATw/W/OFEMTm3dmywbJyLQb4f4v5nmOjgYxPIGpw7HaxRi6LnD4Pjn/q7k55FGeHe1/OD02w63apA==}
     cpu: [arm64]
     os: [darwin]
 
-  '@rollup/rollup-darwin-x64@4.46.3':
-    resolution: {integrity: sha512-r2MXNjbuYabSIX5yQqnT8SGSQ26XQc8fmp6UhlYJd95PZJkQD1u82fWP7HqvGUf33IsOC6qsiV+vcuD4SDP6iw==}
+  '@rollup/rollup-darwin-x64@4.46.4':
+    resolution: {integrity: sha512-QkWfNbeRuzFnv2d0aPlrzcA3Ebq2mE8kX/5Pl7VdRShbPBjSnom7dbT8E3Jmhxo2RL784hyqGvR5KHavCJQciw==}
     cpu: [x64]
     os: [darwin]
 
-  '@rollup/rollup-freebsd-arm64@4.46.3':
-    resolution: {integrity: sha512-uluObTmgPJDuJh9xqxyr7MV61Imq+0IvVsAlWyvxAaBSNzCcmZlhfYcRhCdMaCsy46ccZa7vtDDripgs9Jkqsw==}
+  '@rollup/rollup-freebsd-arm64@4.46.4':
+    resolution: {integrity: sha512-+ToyOMYnSfV8D+ckxO6NthPln/PDNp1P6INcNypfZ7muLmEvPKXqduUiD8DlJpMMT8LxHcE5W0dK9kXfJke9Zw==}
     cpu: [arm64]
     os: [freebsd]
 
-  '@rollup/rollup-freebsd-x64@4.46.3':
-    resolution: {integrity: sha512-AVJXEq9RVHQnejdbFvh1eWEoobohUYN3nqJIPI4mNTMpsyYN01VvcAClxflyk2HIxvLpRcRggpX1m9hkXkpC/A==}
+  '@rollup/rollup-freebsd-x64@4.46.4':
+    resolution: {integrity: sha512-cGT6ey/W+sje6zywbLiqmkfkO210FgRz7tepWAzzEVgQU8Hn91JJmQWNqs55IuglG8sJdzk7XfNgmGRtcYlo1w==}
     cpu: [x64]
     os: [freebsd]
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.46.3':
-    resolution: {integrity: sha512-byyflM+huiwHlKi7VHLAYTKr67X199+V+mt1iRgJenAI594vcmGGddWlu6eHujmcdl6TqSNnvqaXJqZdnEWRGA==}
+  '@rollup/rollup-linux-arm-gnueabihf@4.46.4':
+    resolution: {integrity: sha512-9fhTJyOb275w5RofPSl8lpr4jFowd+H4oQKJ9XTYzD1JWgxdZKE8bA6d4npuiMemkecQOcigX01FNZNCYnQBdA==}
     cpu: [arm]
     os: [linux]
 
-  '@rollup/rollup-linux-arm-musleabihf@4.46.3':
-    resolution: {integrity: sha512-aLm3NMIjr4Y9LklrH5cu7yybBqoVCdr4Nvnm8WB7PKCn34fMCGypVNpGK0JQWdPAzR/FnoEoFtlRqZbBBLhVoQ==}
+  '@rollup/rollup-linux-arm-musleabihf@4.46.4':
+    resolution: {integrity: sha512-+6kCIM5Zjvz2HwPl/udgVs07tPMIp1VU2Y0c72ezjOvSvEfAIWsUgpcSDvnC7g9NrjYR6X9bZT92mZZ90TfvXw==}
     cpu: [arm]
     os: [linux]
 
-  '@rollup/rollup-linux-arm64-gnu@4.46.3':
-    resolution: {integrity: sha512-VtilE6eznJRDIoFOzaagQodUksTEfLIsvXymS+UdJiSXrPW7Ai+WG4uapAc3F7Hgs791TwdGh4xyOzbuzIZrnw==}
+  '@rollup/rollup-linux-arm64-gnu@4.46.4':
+    resolution: {integrity: sha512-SWuXdnsayCZL4lXoo6jn0yyAj7TTjWE4NwDVt9s7cmu6poMhtiras5c8h6Ih6Y0Zk6Z+8t/mLumvpdSPTWub2Q==}
     cpu: [arm64]
     os: [linux]
 
-  '@rollup/rollup-linux-arm64-musl@4.46.3':
-    resolution: {integrity: sha512-dG3JuS6+cRAL0GQ925Vppafi0qwZnkHdPeuZIxIPXqkCLP02l7ka+OCyBoDEv8S+nKHxfjvjW4OZ7hTdHkx8/w==}
+  '@rollup/rollup-linux-arm64-musl@4.46.4':
+    resolution: {integrity: sha512-vDknMDqtMhrrroa5kyX6tuC0aRZZlQ+ipDfbXd2YGz5HeV2t8HOl/FDAd2ynhs7Ki5VooWiiZcCtxiZ4IjqZwQ==}
     cpu: [arm64]
     os: [linux]
 
-  '@rollup/rollup-linux-loongarch64-gnu@4.46.3':
-    resolution: {integrity: sha512-iU8DxnxEKJptf8Vcx4XvAUdpkZfaz0KWfRrnIRrOndL0SvzEte+MTM7nDH4A2Now4FvTZ01yFAgj6TX/mZl8hQ==}
+  '@rollup/rollup-linux-loongarch64-gnu@4.46.4':
+    resolution: {integrity: sha512-mCBkjRZWhvjtl/x+Bd4fQkWZT8canStKDxGrHlBiTnZmJnWygGcvBylzLVCZXka4dco5ymkWhZlLwKCGFF4ivw==}
     cpu: [loong64]
     os: [linux]
 
-  '@rollup/rollup-linux-ppc64-gnu@4.46.3':
-    resolution: {integrity: sha512-VrQZp9tkk0yozJoQvQcqlWiqaPnLM6uY1qPYXvukKePb0fqaiQtOdMJSxNFUZFsGw5oA5vvVokjHrx8a9Qsz2A==}
+  '@rollup/rollup-linux-ppc64-gnu@4.46.4':
+    resolution: {integrity: sha512-YMdz2phOTFF+Z66dQfGf0gmeDSi5DJzY5bpZyeg9CPBkV9QDzJ1yFRlmi/j7WWRf3hYIWrOaJj5jsfwgc8GTHQ==}
     cpu: [ppc64]
     os: [linux]
 
-  '@rollup/rollup-linux-riscv64-gnu@4.46.3':
-    resolution: {integrity: sha512-uf2eucWSUb+M7b0poZ/08LsbcRgaDYL8NCGjUeFMwCWFwOuFcZ8D9ayPl25P3pl+D2FH45EbHdfyUesQ2Lt9wA==}
+  '@rollup/rollup-linux-riscv64-gnu@4.46.4':
+    resolution: {integrity: sha512-r0WKLSfFAK8ucG024v2yiLSJMedoWvk8yWqfNICX28NHDGeu3F/wBf8KG6mclghx4FsLePxJr/9N8rIj1PtCnw==}
     cpu: [riscv64]
     os: [linux]
 
-  '@rollup/rollup-linux-riscv64-musl@4.46.3':
-    resolution: {integrity: sha512-7tnUcDvN8DHm/9ra+/nF7lLzYHDeODKKKrh6JmZejbh1FnCNZS8zMkZY5J4sEipy2OW1d1Ncc4gNHUd0DLqkSg==}
+  '@rollup/rollup-linux-riscv64-musl@4.46.4':
+    resolution: {integrity: sha512-IaizpPP2UQU3MNyPH1u0Xxbm73D+4OupL0bjo4Hm0496e2wg3zuvoAIhubkD1NGy9fXILEExPQy87mweujEatA==}
     cpu: [riscv64]
     os: [linux]
 
-  '@rollup/rollup-linux-s390x-gnu@4.46.3':
-    resolution: {integrity: sha512-MUpAOallJim8CsJK+4Lc9tQzlfPbHxWDrGXZm2z6biaadNpvh3a5ewcdat478W+tXDoUiHwErX/dOql7ETcLqg==}
+  '@rollup/rollup-linux-s390x-gnu@4.46.4':
+    resolution: {integrity: sha512-aCM29orANR0a8wk896p6UEgIfupReupnmISz6SUwMIwTGaTI8MuKdE0OD2LvEg8ondDyZdMvnaN3bW4nFbATPA==}
     cpu: [s390x]
     os: [linux]
 
-  '@rollup/rollup-linux-x64-gnu@4.46.3':
-    resolution: {integrity: sha512-F42IgZI4JicE2vM2PWCe0N5mR5vR0gIdORPqhGQ32/u1S1v3kLtbZ0C/mi9FFk7C5T0PgdeyWEPajPjaUpyoKg==}
+  '@rollup/rollup-linux-x64-gnu@4.46.4':
+    resolution: {integrity: sha512-0Xj1vZE3cbr/wda8d/m+UeuSL+TDpuozzdD4QaSzu/xSOMK0Su5RhIkF7KVHFQsobemUNHPLEcYllL7ZTCP/Cg==}
     cpu: [x64]
     os: [linux]
 
-  '@rollup/rollup-linux-x64-musl@4.46.3':
-    resolution: {integrity: sha512-oLc+JrwwvbimJUInzx56Q3ujL3Kkhxehg7O1gWAYzm8hImCd5ld1F2Gry5YDjR21MNb5WCKhC9hXgU7rRlyegQ==}
+  '@rollup/rollup-linux-x64-musl@4.46.4':
+    resolution: {integrity: sha512-kM/orjpolfA5yxsx84kI6bnK47AAZuWxglGKcNmokw2yy9i5eHY5UAjcX45jemTJnfHAWo3/hOoRqEeeTdL5hw==}
     cpu: [x64]
     os: [linux]
 
-  '@rollup/rollup-win32-arm64-msvc@4.46.3':
-    resolution: {integrity: sha512-lOrQ+BVRstruD1fkWg9yjmumhowR0oLAAzavB7yFSaGltY8klttmZtCLvOXCmGE9mLIn8IBV/IFrQOWz5xbFPg==}
+  '@rollup/rollup-win32-arm64-msvc@4.46.4':
+    resolution: {integrity: sha512-cNLH4psMEsWKILW0isbpQA2OvjXLbKvnkcJFmqAptPQbtLrobiapBJVj6RoIvg6UXVp5w0wnIfd/Q56cNpF+Ew==}
     cpu: [arm64]
     os: [win32]
 
-  '@rollup/rollup-win32-ia32-msvc@4.46.3':
-    resolution: {integrity: sha512-vvrVKPRS4GduGR7VMH8EylCBqsDcw6U+/0nPDuIjXQRbHJc6xOBj+frx8ksfZAh6+Fptw5wHrN7etlMmQnPQVg==}
+  '@rollup/rollup-win32-ia32-msvc@4.46.4':
+    resolution: {integrity: sha512-OiEa5lRhiANpv4SfwYVgQ3opYWi/QmPDC5ve21m8G9pf6ZO+aX1g2EEF1/IFaM1xPSP7mK0msTRXlPs6mIagkg==}
     cpu: [ia32]
     os: [win32]
 
-  '@rollup/rollup-win32-x64-msvc@4.46.3':
-    resolution: {integrity: sha512-fi3cPxCnu3ZeM3EwKZPgXbWoGzm2XHgB/WShKI81uj8wG0+laobmqy5wbgEwzstlbLu4MyO8C19FyhhWseYKNQ==}
+  '@rollup/rollup-win32-x64-msvc@4.46.4':
+    resolution: {integrity: sha512-IKL9mewGZ5UuuX4NQlwOmxPyqielvkAPUS2s1cl6yWjjQvyN3h5JTdVFGD5Jr5xMjRC8setOfGQDVgX8V+dkjg==}
     cpu: [x64]
     os: [win32]
 
@@ -2501,8 +2501,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  aws-cdk-lib@2.211.0:
-    resolution: {integrity: sha512-wrEPu25572HUJwySzL/qf/fFM+a22X7HYpq1uqcjAn4sVL+h52WjVjnI7rDAuhBp6efX6+Jhmw7jZDMql4/+Cw==}
+  aws-cdk-lib@2.212.0:
+    resolution: {integrity: sha512-7vy3/fSwmkJe6hmPpX2DXeDIr/VhMjhOPRH4Y0IUjC0c+W6S4XwQU2urRq3DFJRKRWXDwKidqMZlF1m0ZY1wMw==}
     engines: {node: '>= 18.0.0'}
     peerDependencies:
       constructs: ^10.0.0
@@ -4491,8 +4491,8 @@ packages:
     resolution: {integrity: sha512-57frrGM/OCTLqLOAh0mhVA9VBMHd+9U7Zb2THMGdBUoZVOtGbJzjxsYGDJ3A9AYYCP4hn6y1TVbaOfzWtm5GFg==}
     engines: {node: '>= 12.13.0'}
 
-  redis@5.8.1:
-    resolution: {integrity: sha512-RZjBKYX/qFF809x6vDcE5VA6L3MmiuT+BkbXbIyyyeU0lPD47V4z8qTzN+Z/kKFwpojwCItOfaItYuAjNs8pTQ==}
+  redis@5.8.2:
+    resolution: {integrity: sha512-31vunZj07++Y1vcFGcnNWEf5jPoTkGARgfWI4+Tk55vdwHxhAvug8VEtW7Cx+/h47NuJTEg/JL77zAwC6E0OeA==}
     engines: {node: '>= 18'}
 
   reflect.getprototypeof@1.0.10:
@@ -4563,8 +4563,8 @@ packages:
     peerDependencies:
       rollup: ^4.0.0
 
-  rollup@4.46.3:
-    resolution: {integrity: sha512-RZn2XTjXb8t5g13f5YclGoilU/kwT696DIkY3sywjdZidNSi3+vseaQov7D7BZXVJCPv3pDWUN69C78GGbXsKw==}
+  rollup@4.46.4:
+    resolution: {integrity: sha512-YbxoxvoqNg9zAmw4+vzh1FkGAiZRK+LhnSrbSrSXMdZYsRPDWoshcSd/pldKRO6lWzv/e9TiJAVQyirYIeSIPQ==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
@@ -5460,12 +5460,12 @@ snapshots:
       '@aws-lambda-powertools/commons': 2.25.1
       lodash.merge: 4.6.2
 
-  '@aws-sdk/client-dynamodb@3.868.0':
+  '@aws-sdk/client-dynamodb@3.872.0':
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
       '@aws-sdk/core': 3.864.0
-      '@aws-sdk/credential-provider-node': 3.864.0
+      '@aws-sdk/credential-provider-node': 3.872.0
       '@aws-sdk/middleware-endpoint-discovery': 3.862.0
       '@aws-sdk/middleware-host-header': 3.862.0
       '@aws-sdk/middleware-logger': 3.862.0
@@ -5508,12 +5508,12 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-ssm@3.864.0':
+  '@aws-sdk/client-ssm@3.872.0':
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
       '@aws-sdk/core': 3.864.0
-      '@aws-sdk/credential-provider-node': 3.864.0
+      '@aws-sdk/credential-provider-node': 3.872.0
       '@aws-sdk/middleware-host-header': 3.862.0
       '@aws-sdk/middleware-logger': 3.862.0
       '@aws-sdk/middleware-recursion-detection': 3.862.0
@@ -5555,7 +5555,7 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-sso@3.864.0':
+  '@aws-sdk/client-sso@3.872.0':
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
@@ -5637,13 +5637,13 @@ snapshots:
       '@smithy/util-stream': 4.2.4
       tslib: 2.8.1
 
-  '@aws-sdk/credential-provider-ini@3.864.0':
+  '@aws-sdk/credential-provider-ini@3.872.0':
     dependencies:
       '@aws-sdk/core': 3.864.0
       '@aws-sdk/credential-provider-env': 3.864.0
       '@aws-sdk/credential-provider-http': 3.864.0
       '@aws-sdk/credential-provider-process': 3.864.0
-      '@aws-sdk/credential-provider-sso': 3.864.0
+      '@aws-sdk/credential-provider-sso': 3.872.0
       '@aws-sdk/credential-provider-web-identity': 3.864.0
       '@aws-sdk/nested-clients': 3.864.0
       '@aws-sdk/types': 3.862.0
@@ -5655,13 +5655,13 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/credential-provider-node@3.864.0':
+  '@aws-sdk/credential-provider-node@3.872.0':
     dependencies:
       '@aws-sdk/credential-provider-env': 3.864.0
       '@aws-sdk/credential-provider-http': 3.864.0
-      '@aws-sdk/credential-provider-ini': 3.864.0
+      '@aws-sdk/credential-provider-ini': 3.872.0
       '@aws-sdk/credential-provider-process': 3.864.0
-      '@aws-sdk/credential-provider-sso': 3.864.0
+      '@aws-sdk/credential-provider-sso': 3.872.0
       '@aws-sdk/credential-provider-web-identity': 3.864.0
       '@aws-sdk/types': 3.862.0
       '@smithy/credential-provider-imds': 4.0.7
@@ -5681,9 +5681,9 @@ snapshots:
       '@smithy/types': 4.3.2
       tslib: 2.8.1
 
-  '@aws-sdk/credential-provider-sso@3.864.0':
+  '@aws-sdk/credential-provider-sso@3.872.0':
     dependencies:
-      '@aws-sdk/client-sso': 3.864.0
+      '@aws-sdk/client-sso': 3.872.0
       '@aws-sdk/core': 3.864.0
       '@aws-sdk/token-providers': 3.864.0
       '@aws-sdk/types': 3.862.0
@@ -5710,11 +5710,11 @@ snapshots:
       mnemonist: 0.38.3
       tslib: 2.8.1
 
-  '@aws-sdk/lib-dynamodb@3.868.0(@aws-sdk/client-dynamodb@3.868.0)':
+  '@aws-sdk/lib-dynamodb@3.872.0(@aws-sdk/client-dynamodb@3.872.0)':
     dependencies:
-      '@aws-sdk/client-dynamodb': 3.868.0
+      '@aws-sdk/client-dynamodb': 3.872.0
       '@aws-sdk/core': 3.864.0
-      '@aws-sdk/util-dynamodb': 3.868.0(@aws-sdk/client-dynamodb@3.868.0)
+      '@aws-sdk/util-dynamodb': 3.872.0(@aws-sdk/client-dynamodb@3.872.0)
       '@smithy/core': 3.8.0
       '@smithy/smithy-client': 4.4.10
       '@smithy/types': 4.3.2
@@ -5828,9 +5828,9 @@ snapshots:
       '@smithy/types': 4.3.2
       tslib: 2.8.1
 
-  '@aws-sdk/util-dynamodb@3.868.0(@aws-sdk/client-dynamodb@3.868.0)':
+  '@aws-sdk/util-dynamodb@3.872.0(@aws-sdk/client-dynamodb@3.872.0)':
     dependencies:
-      '@aws-sdk/client-dynamodb': 3.868.0
+      '@aws-sdk/client-dynamodb': 3.872.0
       tslib: 2.8.1
 
   '@aws-sdk/util-endpoints@3.862.0':
@@ -6361,12 +6361,12 @@ snapshots:
       '@mastra/core': 0.13.2(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76)
       '@mastra/server': 0.13.2(@mastra/core@0.13.2(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))(zod@3.25.76)
       '@neon-rs/load': 0.1.82
-      '@optimize-lodash/rollup-plugin': 5.0.2(rollup@4.46.3)
-      '@rollup/plugin-alias': 5.1.1(rollup@4.46.3)
-      '@rollup/plugin-commonjs': 28.0.6(rollup@4.46.3)
-      '@rollup/plugin-json': 6.1.0(rollup@4.46.3)
-      '@rollup/plugin-node-resolve': 16.0.1(rollup@4.46.3)
-      '@rollup/plugin-virtual': 3.0.2(rollup@4.46.3)
+      '@optimize-lodash/rollup-plugin': 5.0.2(rollup@4.46.4)
+      '@rollup/plugin-alias': 5.1.1(rollup@4.46.4)
+      '@rollup/plugin-commonjs': 28.0.6(rollup@4.46.4)
+      '@rollup/plugin-json': 6.1.0(rollup@4.46.4)
+      '@rollup/plugin-node-resolve': 16.0.1(rollup@4.46.4)
+      '@rollup/plugin-virtual': 3.0.2(rollup@4.46.4)
       '@sindresorhus/slugify': 2.2.1
       builtins: 5.1.0
       detect-libc: 2.0.4
@@ -6378,9 +6378,9 @@ snapshots:
       hono: 4.9.2
       package-directory: 8.1.0
       resolve-from: 5.0.0
-      rollup: 4.46.3
-      rollup-plugin-esbuild: 6.2.1(esbuild@0.25.9)(rollup@4.46.3)
-      rollup-plugin-node-externals: 8.0.1(rollup@4.46.3)
+      rollup: 4.46.4
+      rollup-plugin-esbuild: 6.2.1(esbuild@0.25.9)(rollup@4.46.4)
+      rollup-plugin-node-externals: 8.0.1(rollup@4.46.4)
       typescript-paths: 1.5.1(typescript@5.9.2)
       zod: 3.25.76
     transitivePeerDependencies:
@@ -6428,7 +6428,7 @@ snapshots:
       pg: 8.16.3
       pg-pool: 3.10.1(pg@8.16.3)
       postgres: 3.4.7
-      redis: 5.8.1
+      redis: 5.8.2
       xxhash-wasm: 1.1.0
       zod: 3.25.76
       zod-to-json-schema: 3.24.6(zod@3.25.76)
@@ -7165,11 +7165,11 @@ snapshots:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 2.0.1(@opentelemetry/api@1.9.0)
 
-  '@optimize-lodash/rollup-plugin@5.0.2(rollup@4.46.3)':
+  '@optimize-lodash/rollup-plugin@5.0.2(rollup@4.46.4)':
     dependencies:
       '@optimize-lodash/transform': 3.0.6
-      '@rollup/pluginutils': 5.2.0(rollup@4.46.3)
-      rollup: 4.46.3
+      '@rollup/pluginutils': 5.2.0(rollup@4.46.4)
+      rollup: 4.46.4
 
   '@optimize-lodash/transform@3.0.6':
     dependencies:
@@ -7202,33 +7202,33 @@ snapshots:
 
   '@protobufjs/utf8@1.1.0': {}
 
-  '@redis/bloom@5.8.1(@redis/client@5.8.1)':
+  '@redis/bloom@5.8.2(@redis/client@5.8.2)':
     dependencies:
-      '@redis/client': 5.8.1
+      '@redis/client': 5.8.2
 
-  '@redis/client@5.8.1':
+  '@redis/client@5.8.2':
     dependencies:
       cluster-key-slot: 1.1.2
 
-  '@redis/json@5.8.1(@redis/client@5.8.1)':
+  '@redis/json@5.8.2(@redis/client@5.8.2)':
     dependencies:
-      '@redis/client': 5.8.1
+      '@redis/client': 5.8.2
 
-  '@redis/search@5.8.1(@redis/client@5.8.1)':
+  '@redis/search@5.8.2(@redis/client@5.8.2)':
     dependencies:
-      '@redis/client': 5.8.1
+      '@redis/client': 5.8.2
 
-  '@redis/time-series@5.8.1(@redis/client@5.8.1)':
+  '@redis/time-series@5.8.2(@redis/client@5.8.2)':
     dependencies:
-      '@redis/client': 5.8.1
+      '@redis/client': 5.8.2
 
-  '@rollup/plugin-alias@5.1.1(rollup@4.46.3)':
+  '@rollup/plugin-alias@5.1.1(rollup@4.46.4)':
     optionalDependencies:
-      rollup: 4.46.3
+      rollup: 4.46.4
 
-  '@rollup/plugin-commonjs@28.0.6(rollup@4.46.3)':
+  '@rollup/plugin-commonjs@28.0.6(rollup@4.46.4)':
     dependencies:
-      '@rollup/pluginutils': 5.2.0(rollup@4.46.3)
+      '@rollup/pluginutils': 5.2.0(rollup@4.46.4)
       commondir: 1.0.1
       estree-walker: 2.0.2
       fdir: 6.5.0(picomatch@4.0.3)
@@ -7236,94 +7236,94 @@ snapshots:
       magic-string: 0.30.17
       picomatch: 4.0.3
     optionalDependencies:
-      rollup: 4.46.3
+      rollup: 4.46.4
 
-  '@rollup/plugin-json@6.1.0(rollup@4.46.3)':
+  '@rollup/plugin-json@6.1.0(rollup@4.46.4)':
     dependencies:
-      '@rollup/pluginutils': 5.2.0(rollup@4.46.3)
+      '@rollup/pluginutils': 5.2.0(rollup@4.46.4)
     optionalDependencies:
-      rollup: 4.46.3
+      rollup: 4.46.4
 
-  '@rollup/plugin-node-resolve@16.0.1(rollup@4.46.3)':
+  '@rollup/plugin-node-resolve@16.0.1(rollup@4.46.4)':
     dependencies:
-      '@rollup/pluginutils': 5.2.0(rollup@4.46.3)
+      '@rollup/pluginutils': 5.2.0(rollup@4.46.4)
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-module: 1.0.0
       resolve: 1.22.10
     optionalDependencies:
-      rollup: 4.46.3
+      rollup: 4.46.4
 
-  '@rollup/plugin-virtual@3.0.2(rollup@4.46.3)':
+  '@rollup/plugin-virtual@3.0.2(rollup@4.46.4)':
     optionalDependencies:
-      rollup: 4.46.3
+      rollup: 4.46.4
 
-  '@rollup/pluginutils@5.2.0(rollup@4.46.3)':
+  '@rollup/pluginutils@5.2.0(rollup@4.46.4)':
     dependencies:
       '@types/estree': 1.0.8
       estree-walker: 2.0.2
       picomatch: 4.0.3
     optionalDependencies:
-      rollup: 4.46.3
+      rollup: 4.46.4
 
-  '@rollup/rollup-android-arm-eabi@4.46.3':
+  '@rollup/rollup-android-arm-eabi@4.46.4':
     optional: true
 
-  '@rollup/rollup-android-arm64@4.46.3':
+  '@rollup/rollup-android-arm64@4.46.4':
     optional: true
 
-  '@rollup/rollup-darwin-arm64@4.46.3':
+  '@rollup/rollup-darwin-arm64@4.46.4':
     optional: true
 
-  '@rollup/rollup-darwin-x64@4.46.3':
+  '@rollup/rollup-darwin-x64@4.46.4':
     optional: true
 
-  '@rollup/rollup-freebsd-arm64@4.46.3':
+  '@rollup/rollup-freebsd-arm64@4.46.4':
     optional: true
 
-  '@rollup/rollup-freebsd-x64@4.46.3':
+  '@rollup/rollup-freebsd-x64@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.46.3':
+  '@rollup/rollup-linux-arm-gnueabihf@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-arm-musleabihf@4.46.3':
+  '@rollup/rollup-linux-arm-musleabihf@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-arm64-gnu@4.46.3':
+  '@rollup/rollup-linux-arm64-gnu@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-arm64-musl@4.46.3':
+  '@rollup/rollup-linux-arm64-musl@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-loongarch64-gnu@4.46.3':
+  '@rollup/rollup-linux-loongarch64-gnu@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-ppc64-gnu@4.46.3':
+  '@rollup/rollup-linux-ppc64-gnu@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-riscv64-gnu@4.46.3':
+  '@rollup/rollup-linux-riscv64-gnu@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-riscv64-musl@4.46.3':
+  '@rollup/rollup-linux-riscv64-musl@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-s390x-gnu@4.46.3':
+  '@rollup/rollup-linux-s390x-gnu@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-x64-gnu@4.46.3':
+  '@rollup/rollup-linux-x64-gnu@4.46.4':
     optional: true
 
-  '@rollup/rollup-linux-x64-musl@4.46.3':
+  '@rollup/rollup-linux-x64-musl@4.46.4':
     optional: true
 
-  '@rollup/rollup-win32-arm64-msvc@4.46.3':
+  '@rollup/rollup-win32-arm64-msvc@4.46.4':
     optional: true
 
-  '@rollup/rollup-win32-ia32-msvc@4.46.3':
+  '@rollup/rollup-win32-ia32-msvc@4.46.4':
     optional: true
 
-  '@rollup/rollup-win32-x64-msvc@4.46.3':
+  '@rollup/rollup-win32-x64-msvc@4.46.4':
     optional: true
 
   '@rtsao/scc@1.1.0': {}
@@ -8280,7 +8280,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  aws-cdk-lib@2.211.0(constructs@10.4.2):
+  aws-cdk-lib@2.212.0(constructs@10.4.2):
     dependencies:
       '@aws-cdk/asset-awscli-v1': 2.2.242
       '@aws-cdk/asset-node-proxy-agent-v6': 2.1.0
@@ -8414,9 +8414,9 @@ snapshots:
 
   ccount@2.0.1: {}
 
-  cdk-ecr-deployment@4.0.1(aws-cdk-lib@2.211.0(constructs@10.4.2))(constructs@10.4.2):
+  cdk-ecr-deployment@4.0.1(aws-cdk-lib@2.212.0(constructs@10.4.2))(constructs@10.4.2):
     dependencies:
-      aws-cdk-lib: 2.211.0(constructs@10.4.2)
+      aws-cdk-lib: 2.212.0(constructs@10.4.2)
       constructs: 10.4.2
 
   chai@5.3.1:
@@ -10485,13 +10485,13 @@ snapshots:
 
   real-require@0.2.0: {}
 
-  redis@5.8.1:
+  redis@5.8.2:
     dependencies:
-      '@redis/bloom': 5.8.1(@redis/client@5.8.1)
-      '@redis/client': 5.8.1
-      '@redis/json': 5.8.1(@redis/client@5.8.1)
-      '@redis/search': 5.8.1(@redis/client@5.8.1)
-      '@redis/time-series': 5.8.1(@redis/client@5.8.1)
+      '@redis/bloom': 5.8.2(@redis/client@5.8.2)
+      '@redis/client': 5.8.2
+      '@redis/json': 5.8.2(@redis/client@5.8.2)
+      '@redis/search': 5.8.2(@redis/client@5.8.2)
+      '@redis/time-series': 5.8.2(@redis/client@5.8.2)
 
   reflect.getprototypeof@1.0.10:
     dependencies:
@@ -10567,45 +10567,45 @@ snapshots:
 
   revalidator@0.1.8: {}
 
-  rollup-plugin-esbuild@6.2.1(esbuild@0.25.9)(rollup@4.46.3):
+  rollup-plugin-esbuild@6.2.1(esbuild@0.25.9)(rollup@4.46.4):
     dependencies:
       debug: 4.4.1
       es-module-lexer: 1.7.0
       esbuild: 0.25.9
       get-tsconfig: 4.10.1
-      rollup: 4.46.3
+      rollup: 4.46.4
       unplugin-utils: 0.2.5
     transitivePeerDependencies:
       - supports-color
 
-  rollup-plugin-node-externals@8.0.1(rollup@4.46.3):
+  rollup-plugin-node-externals@8.0.1(rollup@4.46.4):
     dependencies:
-      rollup: 4.46.3
+      rollup: 4.46.4
 
-  rollup@4.46.3:
+  rollup@4.46.4:
     dependencies:
       '@types/estree': 1.0.8
     optionalDependencies:
-      '@rollup/rollup-android-arm-eabi': 4.46.3
-      '@rollup/rollup-android-arm64': 4.46.3
-      '@rollup/rollup-darwin-arm64': 4.46.3
-      '@rollup/rollup-darwin-x64': 4.46.3
-      '@rollup/rollup-freebsd-arm64': 4.46.3
-      '@rollup/rollup-freebsd-x64': 4.46.3
-      '@rollup/rollup-linux-arm-gnueabihf': 4.46.3
-      '@rollup/rollup-linux-arm-musleabihf': 4.46.3
-      '@rollup/rollup-linux-arm64-gnu': 4.46.3
-      '@rollup/rollup-linux-arm64-musl': 4.46.3
-      '@rollup/rollup-linux-loongarch64-gnu': 4.46.3
-      '@rollup/rollup-linux-ppc64-gnu': 4.46.3
-      '@rollup/rollup-linux-riscv64-gnu': 4.46.3
-      '@rollup/rollup-linux-riscv64-musl': 4.46.3
-      '@rollup/rollup-linux-s390x-gnu': 4.46.3
-      '@rollup/rollup-linux-x64-gnu': 4.46.3
-      '@rollup/rollup-linux-x64-musl': 4.46.3
-      '@rollup/rollup-win32-arm64-msvc': 4.46.3
-      '@rollup/rollup-win32-ia32-msvc': 4.46.3
-      '@rollup/rollup-win32-x64-msvc': 4.46.3
+      '@rollup/rollup-android-arm-eabi': 4.46.4
+      '@rollup/rollup-android-arm64': 4.46.4
+      '@rollup/rollup-darwin-arm64': 4.46.4
+      '@rollup/rollup-darwin-x64': 4.46.4
+      '@rollup/rollup-freebsd-arm64': 4.46.4
+      '@rollup/rollup-freebsd-x64': 4.46.4
+      '@rollup/rollup-linux-arm-gnueabihf': 4.46.4
+      '@rollup/rollup-linux-arm-musleabihf': 4.46.4
+      '@rollup/rollup-linux-arm64-gnu': 4.46.4
+      '@rollup/rollup-linux-arm64-musl': 4.46.4
+      '@rollup/rollup-linux-loongarch64-gnu': 4.46.4
+      '@rollup/rollup-linux-ppc64-gnu': 4.46.4
+      '@rollup/rollup-linux-riscv64-gnu': 4.46.4
+      '@rollup/rollup-linux-riscv64-musl': 4.46.4
+      '@rollup/rollup-linux-s390x-gnu': 4.46.4
+      '@rollup/rollup-linux-x64-gnu': 4.46.4
+      '@rollup/rollup-linux-x64-musl': 4.46.4
+      '@rollup/rollup-win32-arm64-msvc': 4.46.4
+      '@rollup/rollup-win32-ia32-msvc': 4.46.4
+      '@rollup/rollup-win32-x64-msvc': 4.46.4
       fsevents: 2.3.3
 
   router@2.2.0:
@@ -11276,7 +11276,7 @@ snapshots:
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
       postcss: 8.5.6
-      rollup: 4.46.3
+      rollup: 4.46.4
       tinyglobby: 0.2.14
     optionalDependencies:
       '@types/node': 22.17.2
