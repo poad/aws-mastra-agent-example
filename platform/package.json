@@ -42,8 +42,8 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
-    "@ai-sdk/amazon-bedrock": "^3.0.16",
-    "@ai-sdk/azure": "^2.0.24",
+    "@ai-sdk/amazon-bedrock": "^3.0.17",
+    "@ai-sdk/azure": "^2.0.25",
     "@aws-lambda-powertools/logger": "^2.25.2",
     "@aws-sdk/client-dynamodb": "^3.883.0",
     "@aws-sdk/client-ssm": "^3.883.0",
