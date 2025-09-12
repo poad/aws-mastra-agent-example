@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@ai-sdk/amazon-bedrock": "^3.0.19",
-    "@ai-sdk/azure": "^2.0.28",
+    "@ai-sdk/azure": "^2.0.29",
     "@aws-lambda-powertools/logger": "^2.26.0",
     "@aws-sdk/client-dynamodb": "^3.887.0",
     "@aws-sdk/client-ssm": "^3.887.0",
