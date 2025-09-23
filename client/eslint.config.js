@@ -12,9 +12,7 @@ import { FlatCompat } from '@eslint/eslintrc';
 const compat = new FlatCompat();
 
 import { includeIgnoreFile } from '@eslint/compat';
-// @ts-expect-error ignore import error for node:path
 import path from 'node:path';
-// @ts-expect-error ignore import error for node:url
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -37,6 +35,7 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
+  // @ts-expect-error no types
   pluginPromise.configs['flat/recommended'],
   {
     files: ['src/**/*.{ts,tsx}'],
