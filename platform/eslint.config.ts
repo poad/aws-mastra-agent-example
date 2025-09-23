@@ -3,8 +3,9 @@
 import { defineConfig } from 'eslint/config';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import tseslint from 'typescript-eslint';
+import { configs, parser } from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
+// @ts-expect-error https://github.com/eslint-community/eslint-plugin-promise/issues/488 解決待ち
 import pluginPromise from 'eslint-plugin-promise';
 
 import { includeIgnoreFile } from '@eslint/compat';
@@ -30,22 +31,29 @@ export default defineConfig(
     ],
   },
   eslint.configs.recommended,
-  ...tseslint.configs.strict,
-  ...tseslint.configs.stylistic,
-  // @ts-expect-error no types
+  ...configs.strict,
+  ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   {
     files: [
       '**/*.ts',
-      // '**/*.js',
     ],
     languageOptions: {
-      parser: tseslint.parser,
+      parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
         tsconfigRootDir: __dirname,
-        // project: [path.resolve(__dirname, 'tsconfig.json')],
+        project: [path.resolve(__dirname, 'tsconfig.json')],
+        projectService: true,
+      },
+    },
+    'settings': {
+      'import/resolver': {
+        // You will also need to install and configure the TypeScript resolver
+        // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
+        'typescript': true,
+        'node': true,
       },
     },
     plugins: {

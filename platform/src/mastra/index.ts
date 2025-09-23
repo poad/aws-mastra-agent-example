@@ -1,11 +1,8 @@
-
-// eslint-disable-next-line import/no-unresolved
 import { Mastra } from '@mastra/core/mastra';
-// eslint-disable-next-line import/no-unresolved
-import { ConsoleLogger } from '@mastra/core/logger';
+import { PinoLogger } from '@mastra/loggers';
 import { LangfuseExporter } from 'langfuse-vercel';
 
-import { weatherAgent } from './agents';
+import { weatherAgent } from './agents/index.js';
 
 const cors = {
   origin: ['*'],
@@ -22,7 +19,7 @@ export const mastra = new Mastra({
     timeout: 10000,
     cors,
   },
-  logger: new ConsoleLogger({
+  logger: new PinoLogger({
     name: 'Mastra',
     level: 'info',
   }),

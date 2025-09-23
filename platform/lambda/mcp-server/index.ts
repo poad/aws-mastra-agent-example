@@ -1,8 +1,8 @@
 import { Hono } from 'hono';
 import { StreamableHTTPTransport } from '@hono/mcp';
-// eslint-disable-next-line import/no-unresolved
+
 import { handle } from 'hono/aws-lambda';
-import { server } from './mcp-server';
+import { server } from './mcp-server.js';
 import { Logger } from '@aws-lambda-powertools/logger';
 
 const logger = new Logger();

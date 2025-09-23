@@ -1,7 +1,6 @@
-// eslint-disable-next-line import/no-unresolved
+
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
-// eslint-disable-next-line import/no-unresolved
 import weather from './tools/WeatherTool.js';
 
 // サーバーインスタンスの作成

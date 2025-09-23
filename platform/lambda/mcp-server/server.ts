@@ -1,6 +1,6 @@
 import { serve } from '@hono/node-server';
 import { Logger } from '@aws-lambda-powertools/logger';
-import { app } from '.';
+import { app } from './index.js';
 
 const logger = new Logger();
 
