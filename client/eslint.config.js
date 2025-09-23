@@ -1,15 +1,12 @@
 // @ts-check
 
+import { defineConfig } from 'eslint/config';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 import pluginPromise from 'eslint-plugin-promise';
-import solid from 'eslint-plugin-solid';
-
-import { FlatCompat } from '@eslint/eslintrc';
-
-const compat = new FlatCompat();
+import solid from "eslint-plugin-solid/configs/typescript";
 
 import { includeIgnoreFile } from '@eslint/compat';
 import path from 'node:path';
@@ -19,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, '.gitignore');
 
-export default tseslint.config(
+export default defineConfig(
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
@@ -39,6 +36,7 @@ export default tseslint.config(
   pluginPromise.configs['flat/recommended'],
   {
     files: ['src/**/*.{ts,tsx}'],
+    ...solid,
     languageOptions: {
       parser: tseslint.parser,
       ecmaVersion: 'latest',
@@ -49,9 +47,6 @@ export default tseslint.config(
     },
     plugins: {
       '@stylistic': stylistic,
-      '@stylistic/ts': stylistic,
-      '@stylistic/jsx': stylistic,
-      solid,
     },
     extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
     rules: {
