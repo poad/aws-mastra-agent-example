@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { compileCloudFrontBundles } from './process/setup-function';
-import { compileClientBundles } from './process/setup-client';
+import { compileCloudFrontBundles } from './process/setup-function.js';
+import { compileClientBundles } from './process/setup-client.js';
 import * as ecrdeploy from 'cdk-ecr-deployment';
 
 function createLangfuseCredentials({

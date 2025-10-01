@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
-import { PlatformStack } from '../lib/platform-stack';
+import { PlatformStack } from '../lib/platform-stack.js';
 import assert from 'assert';
 
 const app = new cdk.App();
