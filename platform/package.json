@@ -61,7 +61,7 @@
     "constructs": "^10.4.2",
     "crypto-js": "^4.2.0",
     "express": "^5.1.0",
-    "hono": "^4.10.2",
+    "hono": "^4.10.3",
     "jose": "^6.1.0",
     "langfuse-vercel": "^3.38.6",
     "uuid": "^11.1.0",
