@@ -296,6 +296,18 @@ export class PlatformStack extends cdk.Stack {
       priceClass: cdk.aws_cloudfront.PriceClass.PRICE_CLASS_200,
     });
 
+    // Add permission Lambda Function URLs
+    fn.addPermission('AllowCloudFrontServicePrincipalFunctionUrl', {
+      principal: new cdk.aws_iam.ServicePrincipal('cloudfront.amazonaws.com'),
+      action: 'lambda:InvokeFunctionUrl',
+      sourceArn: `arn:aws:cloudfront::${cdk.Stack.of(this).account}:distribution/${cfDistribution.distributionId}`,
+    });
+    fn.addPermission('AllowCloudFrontServicePrincipal', {
+      principal: new cdk.aws_iam.ServicePrincipal('cloudfront.amazonaws.com'),
+      action: 'lambda:InvokeFunction',
+      sourceArn: `arn:aws:cloudfront::${cdk.Stack.of(this).account}:distribution/${cfDistribution.distributionId}`,
+    });
+
     compileClientBundles({});
 
     const deployRole = new cdk.aws_iam.Role(this, 'DeployWebsiteRole', {
@@ -322,12 +334,6 @@ export class PlatformStack extends cdk.Stack {
       prune: true,
       retainOnDelete: false,
       role: deployRole,
-    });
-
-    // CloudFront ディストリビューションにカスタムドメインを設定していれば要らない
-    new cdk.aws_ssm.StringParameter(this, 'SsmParameter', {
-      parameterName: `/${parameterName}`,
-      stringValue: `https://${cfDistribution.distributionDomainName}/mcp`,
     });
   }
 }
