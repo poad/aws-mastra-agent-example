@@ -45,7 +45,7 @@ const config: ConfigObject[] =  defineConfig(
       sourceType: 'module',
       parserOptions: {
         tsconfigRootDir: __dirname,
-        project: [path.resolve(__dirname, 'tsconfig.json')],
+        project: [path.resolve(__dirname, 'tsconfig-test.json')],
         projectService: true,
       },
     },

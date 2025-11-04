@@ -2,11 +2,12 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "esnext",
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    "noEmit": true
   },
   "include": [
     "src",
-    "vite.config.ts",
+    "*.config.ts",
     "__tests__"
   ]
 }
