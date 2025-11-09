@@ -12,6 +12,7 @@ onlyBuiltDependencies:
   - unrs-resolver
 
 overrides:
+  ai@<5.0.52: '>=5.0.52'
   axios@=1.10.0: '>=1.11.0'
   hono@>=4.8.0 <4.9.6: '>=4.9.6'
   jsondiffpatch@<0.7.2: '>=0.7.2'
