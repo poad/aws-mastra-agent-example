@@ -7,7 +7,15 @@
   },
   "include": [
     "src",
+    "bin",
+    "lib",
+    "lambda",
+    "function",
     "*.config.ts",
     "__tests__"
+  ],
+  "exclude": [
+    "node_modules",
+    "cdk.out"
   ]
 }

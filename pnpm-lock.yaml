@@ -15,8 +15,8 @@ importers:
   .:
     devDependencies:
       pnpm:
-        specifier: ^10.20.0
-        version: 10.20.0
+        specifier: ^10.21.0
+        version: 10.21.0
 
   client:
     dependencies:
@@ -103,8 +103,8 @@ importers:
   platform:
     dependencies:
       '@ai-sdk/amazon-bedrock':
-        specifier: ^3.0.52
-        version: 3.0.52(zod@3.25.76)
+        specifier: ^3.0.53
+        version: 3.0.53(zod@3.25.76)
       '@ai-sdk/azure':
         specifier: ^2.0.66
         version: 2.0.66(zod@3.25.76)
@@ -161,7 +161,7 @@ importers:
         version: 6.1.1
       langfuse-vercel:
         specifier: ^3.38.6
-        version: 3.38.6(ai@5.0.89(zod@3.25.76))
+        version: 3.38.6(ai@5.0.90(zod@3.25.76))
       uuid:
         specifier: ^11.1.0
         version: 11.1.0
@@ -287,8 +287,8 @@ packages:
     resolution: {integrity: sha512-VTDuRS5V0ATbJ/LkaQlisMnTAeYKXAK6scMguVBstf+KIBQ7HIuKhiXLv+G/hvejkV+THoXzoNifInAkU81P1g==}
     engines: {node: '>=18'}
 
-  '@ai-sdk/amazon-bedrock@3.0.52':
-    resolution: {integrity: sha512-dCse5ShXxeKB0IBg2/uac3DaHaFHYh6xoDBGjtlxeosHAppHwkal4OA5tgy6uj3Zp9bRZg4ZlkR77zdw3HC4ug==}
+  '@ai-sdk/amazon-bedrock@3.0.53':
+    resolution: {integrity: sha512-HyVLZbdGunqJbdCK2v/jofo9Z4lDAbngO2X/T57K+4wPZtCeUnv0f9F941RgU6XVJwdxjxITX1XEhhBP1qqGnw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -299,8 +299,8 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/anthropic@2.0.42':
-    resolution: {integrity: sha512-5BcXMx6VTYPeA4csd1SvJgpCn5Nu9qHqsNqOr1e/R7UHq83Vv4j4OcgbFwdWgaW/wihNla5B+y4OGqTFIw216w==}
+  '@ai-sdk/anthropic@2.0.43':
+    resolution: {integrity: sha512-YQWYdoU6X1E16BS/KYCkage18q8sqj3FguCZ/RQs/wxS1551DVeD5DrWiYXxm5T293HzeAVJssQFEx67kc4LmA==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -2702,8 +2702,8 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  ai@5.0.89:
-    resolution: {integrity: sha512-8Nq+ZojGacQrupoJEQLrTDzT5VtR3gyp5AaqFSV3tzsAXlYQ9Igb7QE3yeoEdzOk5IRfDwWL7mDCUD+oBg1hDA==}
+  ai@5.0.90:
+    resolution: {integrity: sha512-bawNN10N2cXzFedbDdNUZo8KkcGp12VX1b+mCL5dfllh6WmLsIYYME7GVxsRJvHvPP7xRhuds5fn0jtLyxGnZw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -4596,8 +4596,8 @@ packages:
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
 
-  pnpm@10.20.0:
-    resolution: {integrity: sha512-z5mYIiFi3YWGTQqBAueJLnukzq3rv1ox+cL85I384xepxTufZGTR75BCy6LgKuAqn3wUOitDjNk8kYQPAZK53Q==}
+  pnpm@10.21.0:
+    resolution: {integrity: sha512-2jM3Jn5AD909R5psaAeaxtsB2MpPZ1cgg+cid1p5Z4inqZVmE3SeAA+sINQktZT3p5Gl9OLhNYHF75R/JpaKQA==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -5493,9 +5493,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ai-sdk/amazon-bedrock@3.0.52(zod@3.25.76)':
+  '@ai-sdk/amazon-bedrock@3.0.53(zod@3.25.76)':
     dependencies:
-      '@ai-sdk/anthropic': 2.0.42(zod@3.25.76)
+      '@ai-sdk/anthropic': 2.0.43(zod@3.25.76)
       '@ai-sdk/provider': 2.0.0
       '@ai-sdk/provider-utils': 3.0.16(zod@3.25.76)
       '@smithy/eventstream-codec': 4.2.4
@@ -5509,7 +5509,7 @@ snapshots:
       '@ai-sdk/provider-utils': 3.0.10(zod@3.25.76)
       zod: 3.25.76
 
-  '@ai-sdk/anthropic@2.0.42(zod@3.25.76)':
+  '@ai-sdk/anthropic@2.0.43(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 2.0.0
       '@ai-sdk/provider-utils': 3.0.16(zod@3.25.76)
@@ -6645,7 +6645,7 @@ snapshots:
       '@ai-sdk/provider-v5': '@ai-sdk/provider@2.0.0'
       '@ai-sdk/ui-utils': 1.2.11(zod@4.1.12)
       '@isaacs/ttlcache': 1.4.1
-      '@mastra/schema-compat': 0.11.4(ai@5.0.89(zod@4.1.12))(zod@4.1.12)
+      '@mastra/schema-compat': 0.11.4(ai@5.0.90(zod@4.1.12))(zod@4.1.12)
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/auto-instrumentations-node': 0.62.2(@opentelemetry/api@1.9.0)(@opentelemetry/core@2.2.0(@opentelemetry/api@1.9.0))
       '@opentelemetry/core': 2.2.0(@opentelemetry/api@1.9.0)
@@ -6660,7 +6660,7 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 2.2.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
       '@sindresorhus/slugify': 2.2.1
-      ai: 5.0.89(zod@4.1.12)
+      ai: 5.0.90(zod@4.1.12)
       ai-v5: ai@5.0.44(zod@4.1.12)
       date-fns: 3.6.0
       dotenv: 16.6.1
@@ -6707,8 +6707,8 @@ snapshots:
       '@ai-sdk/ui-utils': 1.2.11(zod@3.25.76)
       '@ai-sdk/xai-v5': '@ai-sdk/xai@2.0.23(zod@3.25.76)'
       '@isaacs/ttlcache': 1.4.1
-      '@mastra/schema-compat': 0.11.4(ai@5.0.89(zod@3.25.76))(zod@3.25.76)
-      '@openrouter/ai-sdk-provider-v5': '@openrouter/ai-sdk-provider@1.2.0(ai@5.0.89(zod@3.25.76))(zod@3.25.76)'
+      '@mastra/schema-compat': 0.11.4(ai@5.0.90(zod@3.25.76))(zod@3.25.76)
+      '@openrouter/ai-sdk-provider-v5': '@openrouter/ai-sdk-provider@1.2.0(ai@5.0.90(zod@3.25.76))(zod@3.25.76)'
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/auto-instrumentations-node': 0.62.2(@opentelemetry/api@1.9.0)(@opentelemetry/core@2.2.0(@opentelemetry/api@1.9.0))
       '@opentelemetry/core': 2.2.0(@opentelemetry/api@1.9.0)
@@ -6723,7 +6723,7 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 2.2.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
       '@sindresorhus/slugify': 2.2.1
-      ai: 5.0.89(zod@3.25.76)
+      ai: 5.0.90(zod@3.25.76)
       ai-v5: ai@5.0.60(zod@3.25.76)
       date-fns: 3.6.0
       dotenv: 16.6.1
@@ -6827,9 +6827,9 @@ snapshots:
   '@mastra/memory@0.15.11(@mastra/core@0.20.2(openapi-types@12.1.3)(zod@3.25.76))(zod@3.25.76)':
     dependencies:
       '@mastra/core': 0.20.2(openapi-types@12.1.3)(zod@3.25.76)
-      '@mastra/schema-compat': 0.11.7(ai@5.0.89(zod@3.25.76))(zod@3.25.76)
+      '@mastra/schema-compat': 0.11.7(ai@5.0.90(zod@3.25.76))(zod@3.25.76)
       '@upstash/redis': 1.35.6
-      ai: 5.0.89(zod@3.25.76)
+      ai: 5.0.90(zod@3.25.76)
       ai-v5: ai@5.0.60(zod@3.25.76)
       async-mutex: 0.5.0
       js-tiktoken: 1.0.21
@@ -6844,27 +6844,27 @@ snapshots:
     transitivePeerDependencies:
       - pg-native
 
-  '@mastra/schema-compat@0.11.4(ai@5.0.89(zod@3.25.76))(zod@3.25.76)':
+  '@mastra/schema-compat@0.11.4(ai@5.0.90(zod@3.25.76))(zod@3.25.76)':
     dependencies:
-      ai: 5.0.89(zod@3.25.76)
+      ai: 5.0.90(zod@3.25.76)
       json-schema: 0.4.0
       zod: 3.25.76
       zod-from-json-schema: 0.5.1
       zod-from-json-schema-v3: zod-from-json-schema@0.0.5
       zod-to-json-schema: 3.24.6(zod@3.25.76)
 
-  '@mastra/schema-compat@0.11.4(ai@5.0.89(zod@4.1.12))(zod@4.1.12)':
+  '@mastra/schema-compat@0.11.4(ai@5.0.90(zod@4.1.12))(zod@4.1.12)':
     dependencies:
-      ai: 5.0.89(zod@4.1.12)
+      ai: 5.0.90(zod@4.1.12)
       json-schema: 0.4.0
       zod: 4.1.12
       zod-from-json-schema: 0.5.1
       zod-from-json-schema-v3: zod-from-json-schema@0.0.5
       zod-to-json-schema: 3.24.6(zod@4.1.12)
 
-  '@mastra/schema-compat@0.11.7(ai@5.0.89(zod@3.25.76))(zod@3.25.76)':
+  '@mastra/schema-compat@0.11.7(ai@5.0.90(zod@3.25.76))(zod@3.25.76)':
     dependencies:
-      ai: 5.0.89(zod@3.25.76)
+      ai: 5.0.90(zod@3.25.76)
       json-schema: 0.4.0
       zod: 3.25.76
       zod-from-json-schema: 0.5.1
@@ -6917,9 +6917,9 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
 
-  '@openrouter/ai-sdk-provider@1.2.0(ai@5.0.89(zod@3.25.76))(zod@3.25.76)':
+  '@openrouter/ai-sdk-provider@1.2.0(ai@5.0.90(zod@3.25.76))(zod@3.25.76)':
     dependencies:
-      ai: 5.0.89(zod@3.25.76)
+      ai: 5.0.90(zod@3.25.76)
       zod: 3.25.76
 
   '@opentelemetry/api-logs@0.203.0':
@@ -8679,7 +8679,7 @@ snapshots:
       '@opentelemetry/api': 1.9.0
       zod: 3.25.76
 
-  ai@5.0.89(zod@3.25.76):
+  ai@5.0.90(zod@3.25.76):
     dependencies:
       '@ai-sdk/gateway': 2.0.7(zod@3.25.76)
       '@ai-sdk/provider': 2.0.0
@@ -8687,7 +8687,7 @@ snapshots:
       '@opentelemetry/api': 1.9.0
       zod: 3.25.76
 
-  ai@5.0.89(zod@4.1.12):
+  ai@5.0.90(zod@4.1.12):
     dependencies:
       '@ai-sdk/gateway': 2.0.7(zod@4.1.12)
       '@ai-sdk/provider': 2.0.0
@@ -10158,9 +10158,9 @@ snapshots:
     dependencies:
       mustache: 4.2.0
 
-  langfuse-vercel@3.38.6(ai@5.0.89(zod@3.25.76)):
+  langfuse-vercel@3.38.6(ai@5.0.90(zod@3.25.76)):
     dependencies:
-      ai: 5.0.89(zod@3.25.76)
+      ai: 5.0.90(zod@3.25.76)
       langfuse: 3.38.6
       langfuse-core: 3.38.6
 
@@ -10791,7 +10791,7 @@ snapshots:
       exsolve: 1.0.7
       pathe: 2.0.3
 
-  pnpm@10.20.0: {}
+  pnpm@10.21.0: {}
 
   possible-typed-array-names@1.1.0: {}
 
