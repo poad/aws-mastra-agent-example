@@ -70,7 +70,7 @@ export class PlatformStack extends cdk.Stack {
     const mcp = new cdk.aws_lambda_nodejs.NodejsFunction(this, 'McpServerLambda', {
       functionName: mcpFunctionName,
       architecture: cdk.aws_lambda.Architecture.ARM_64,
-      runtime: cdk.aws_lambda.Runtime.NODEJS_22_X,
+      runtime: cdk.aws_lambda.Runtime.NODEJS_24_X,
       entry: './lambda/mcp-server/index.ts',
       retryAttempts: 0,
       logGroup: mcpLogGroup,
