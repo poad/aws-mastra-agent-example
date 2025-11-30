@@ -14,7 +14,7 @@
   "devDependencies": {
     "@eslint/compat": "^1.4.1",
     "@eslint/core": "^0.16.0",
-    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.39.1",
     "@stylistic/eslint-plugin": "^5.6.1",
     "@tailwindcss/postcss": "^4.1.17",
@@ -39,6 +39,6 @@
     "@solidjs/router": "^0.15.4",
     "crypto-js": "^4.2.0",
     "solid-js": "^1.9.10",
-    "solid-markdown": "^2.0.14"
+    "solid-markdown": "^2.1.1"
   }
 }
