@@ -59,7 +59,7 @@
     "aws-cdk-lib": "^2.230.0",
     "constructs": "^10.4.3",
     "crypto-js": "^4.2.0",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "hono": "^4.10.7",
     "jose": "^6.1.2",
     "langfuse-vercel": "^3.38.6",
