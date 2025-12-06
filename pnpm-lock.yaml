@@ -162,7 +162,7 @@ importers:
         version: 6.1.3
       langfuse-vercel:
         specifier: ^3.38.6
-        version: 3.38.6(ai@5.0.107(zod@4.1.13))
+        version: 3.38.6(ai@5.0.108(zod@4.1.13))
       uuid:
         specifier: ^11.1.0
         version: 11.1.0
@@ -2879,8 +2879,8 @@ packages:
     resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
     engines: {node: '>= 14'}
 
-  ai@5.0.107:
-    resolution: {integrity: sha512-laZlS9ZC/DZfSaxPgrBqI4mM+kxRvTPBBQfa74ceBFskkunZKEsaGVFNEs4cfyGa3nCCCl1WO/fjxixp4V8Zag==}
+  ai@5.0.108:
+    resolution: {integrity: sha512-Jex3Lb7V41NNpuqJHKgrwoU6BCLHdI1Pg4qb4GJH4jRIDRXUBySJErHjyN4oTCwbiYCeb/8II9EnqSRPq9EifA==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -6870,7 +6870,7 @@ snapshots:
       '@ai-sdk/provider-v5': '@ai-sdk/provider@2.0.0'
       '@ai-sdk/ui-utils': 1.2.11(zod@4.1.13)
       '@isaacs/ttlcache': 1.4.1
-      '@mastra/schema-compat': 0.11.4(ai@5.0.107(zod@4.1.13))(zod@4.1.13)
+      '@mastra/schema-compat': 0.11.4(ai@5.0.108(zod@4.1.13))(zod@4.1.13)
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/auto-instrumentations-node': 0.62.2(@opentelemetry/api@1.9.0)(@opentelemetry/core@2.2.0(@opentelemetry/api@1.9.0))
       '@opentelemetry/core': 2.2.0(@opentelemetry/api@1.9.0)
@@ -6885,7 +6885,7 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 2.2.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
       '@sindresorhus/slugify': 2.2.1
-      ai: 5.0.107(zod@4.1.13)
+      ai: 5.0.108(zod@4.1.13)
       ai-v5: ai@5.0.44(zod@4.1.13)
       date-fns: 3.6.0
       dotenv: 16.6.1
@@ -6933,8 +6933,8 @@ snapshots:
       '@ai-sdk/ui-utils': 1.2.11(zod@4.1.13)
       '@ai-sdk/xai-v5': '@ai-sdk/xai@2.0.26(zod@4.1.13)'
       '@isaacs/ttlcache': 1.4.1
-      '@mastra/schema-compat': 0.11.8(ai@5.0.107(zod@4.1.13))(zod@4.1.13)
-      '@openrouter/ai-sdk-provider-v5': '@openrouter/ai-sdk-provider@1.2.3(ai@5.0.107(zod@4.1.13))(zod@4.1.13)'
+      '@mastra/schema-compat': 0.11.8(ai@5.0.108(zod@4.1.13))(zod@4.1.13)
+      '@openrouter/ai-sdk-provider-v5': '@openrouter/ai-sdk-provider@1.2.3(ai@5.0.108(zod@4.1.13))(zod@4.1.13)'
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/auto-instrumentations-node': 0.62.2(@opentelemetry/api@1.9.0)(@opentelemetry/core@2.2.0(@opentelemetry/api@1.9.0))
       '@opentelemetry/core': 2.2.0(@opentelemetry/api@1.9.0)
@@ -6949,7 +6949,7 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 2.2.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
       '@sindresorhus/slugify': 2.2.1
-      ai: 5.0.107(zod@4.1.13)
+      ai: 5.0.108(zod@4.1.13)
       ai-v5: ai@5.0.97(zod@4.1.13)
       date-fns: 3.6.0
       dotenv: 16.6.1
@@ -7054,9 +7054,9 @@ snapshots:
   '@mastra/memory@0.15.12(@mastra/core@0.24.6(openapi-types@12.1.3)(zod@4.1.13))(zod@4.1.13)':
     dependencies:
       '@mastra/core': 0.24.6(openapi-types@12.1.3)(zod@4.1.13)
-      '@mastra/schema-compat': 0.11.8(ai@5.0.107(zod@4.1.13))(zod@4.1.13)
+      '@mastra/schema-compat': 0.11.8(ai@5.0.108(zod@4.1.13))(zod@4.1.13)
       '@upstash/redis': 1.35.7
-      ai: 5.0.107(zod@4.1.13)
+      ai: 5.0.108(zod@4.1.13)
       ai-v5: ai@5.0.60(zod@4.1.13)
       async-mutex: 0.5.0
       js-tiktoken: 1.0.21
@@ -7071,18 +7071,18 @@ snapshots:
     transitivePeerDependencies:
       - pg-native
 
-  '@mastra/schema-compat@0.11.4(ai@5.0.107(zod@4.1.13))(zod@4.1.13)':
+  '@mastra/schema-compat@0.11.4(ai@5.0.108(zod@4.1.13))(zod@4.1.13)':
     dependencies:
-      ai: 5.0.107(zod@4.1.13)
+      ai: 5.0.108(zod@4.1.13)
       json-schema: 0.4.0
       zod: 4.1.13
       zod-from-json-schema: 0.5.2
       zod-from-json-schema-v3: zod-from-json-schema@0.0.5
       zod-to-json-schema: 3.25.0(zod@4.1.13)
 
-  '@mastra/schema-compat@0.11.8(ai@5.0.107(zod@4.1.13))(zod@4.1.13)':
+  '@mastra/schema-compat@0.11.8(ai@5.0.108(zod@4.1.13))(zod@4.1.13)':
     dependencies:
-      ai: 5.0.107(zod@4.1.13)
+      ai: 5.0.108(zod@4.1.13)
       json-schema: 0.4.0
       zod: 4.1.13
       zod-from-json-schema: 0.5.2
@@ -7136,10 +7136,10 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
 
-  '@openrouter/ai-sdk-provider@1.2.3(ai@5.0.107(zod@4.1.13))(zod@4.1.13)':
+  '@openrouter/ai-sdk-provider@1.2.3(ai@5.0.108(zod@4.1.13))(zod@4.1.13)':
     dependencies:
       '@openrouter/sdk': 0.1.27
-      ai: 5.0.107(zod@4.1.13)
+      ai: 5.0.108(zod@4.1.13)
       zod: 4.1.13
 
   '@openrouter/sdk@0.1.27':
@@ -8885,7 +8885,7 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ai@5.0.107(zod@4.1.13):
+  ai@5.0.108(zod@4.1.13):
     dependencies:
       '@ai-sdk/gateway': 2.0.18(zod@4.1.13)
       '@ai-sdk/provider': 2.0.0
@@ -10364,9 +10364,9 @@ snapshots:
     dependencies:
       mustache: 4.2.0
 
-  langfuse-vercel@3.38.6(ai@5.0.107(zod@4.1.13)):
+  langfuse-vercel@3.38.6(ai@5.0.108(zod@4.1.13)):
     dependencies:
-      ai: 5.0.107(zod@4.1.13)
+      ai: 5.0.108(zod@4.1.13)
       langfuse: 3.38.6
       langfuse-core: 3.38.6
 
