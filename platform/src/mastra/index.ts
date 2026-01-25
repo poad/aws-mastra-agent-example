@@ -1,6 +1,7 @@
 import { Mastra } from '@mastra/core/mastra';
 import { PinoLogger } from '@mastra/loggers';
-import { LangfuseExporter } from 'langfuse-vercel';
+import { Observability } from '@mastra/observability';
+import { LangfuseExporter } from '@mastra/langfuse';
 
 import { weatherAgent } from './agents/index.js';
 
@@ -23,17 +24,12 @@ export const mastra = new Mastra({
     name: 'Mastra',
     level: 'info',
   }),
-  telemetry: {
-    serviceName: 'ai', // this must be set to "ai" so that the LangfuseExporter thinks it's an AI SDK trace
-    enabled: true,
-    export: {
-      type: 'custom',
-      exporter: new LangfuseExporter({
-        publicKey: process.env.LANGFUSE_PUBLIC_KEY,
-        secretKey: process.env.LANGFUSE_SECRET_KEY,
-        baseUrl: process.env.LANGFUSE_BASEURL,
-        flushAt: 1,
-      }),
+  observability: new Observability({
+    configs: {
+      langfuse: {
+        serviceName: 'my-service',
+        exporters: [new LangfuseExporter()],
+      },
     },
-  },
+  }),
 });

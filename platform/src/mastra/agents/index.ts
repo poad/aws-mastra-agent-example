@@ -4,7 +4,9 @@ import { mcp } from '../mcp.js';
 
 const BEDROCK_MODEL = process.env.BEDROCK_MODEL ?? 'openai.gpt-oss-120b-1:0';
 
+/* FIXME(mastra): Add a unique `id` parameter. See: https://mastra.ai/guides/migrations/upgrade-to-v1/mastra#required-id-parameter-for-all-mastra-primitives */
 export const weatherAgent = new Agent({
+  id: 'weather-agent',
   name: 'Weather Agent',
   instructions: `
       あなたは正確な天気情報を提供する便利な天気アシスタントです。
@@ -19,5 +21,5 @@ export const weatherAgent = new Agent({
       現在の天気データを取得するには、weatherToolを使用してください。
 `,
   model: bedrock(BEDROCK_MODEL),
-  tools: { ...await mcp.getTools() },
+  tools: await mcp.listTools(),
 });
