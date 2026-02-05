@@ -19,7 +19,7 @@
     "@stylistic/eslint-plugin": "^5.7.1",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/crypto-js": "^4.2.2",
-    "@types/node": "^24.10.10",
+    "@types/node": "^24.10.12",
     "autoprefixer": "^10.4.24",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@ai-sdk/ui-utils": "^1.2.11",
-    "@mastra/client-js": "^1.1.0",
+    "@mastra/client-js": "^1.2.0",
     "@solidjs/router": "^0.15.4",
     "crypto-js": "^4.2.0",
     "solid-js": "^1.9.11",
