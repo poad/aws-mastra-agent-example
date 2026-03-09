@@ -16,8 +16,8 @@ importers:
   .:
     devDependencies:
       pnpm:
-        specifier: ^10.30.3
-        version: 10.30.3
+        specifier: ^10.31.0
+        version: 10.31.0
 
   client:
     dependencies:
@@ -164,8 +164,8 @@ importers:
         specifier: ^4.12.5
         version: 4.12.5
       jose:
-        specifier: ^6.2.0
-        version: 6.2.0
+        specifier: ^6.2.1
+        version: 6.2.1
       uuid:
         specifier: ^13.0.0
         version: 13.0.0
@@ -207,8 +207,8 @@ importers:
         specifier: ^4.0.18
         version: 4.0.18(vitest@4.0.18(@types/node@24.12.0)(jiti@2.6.1)(lightningcss@1.31.1)(tsx@4.21.0)(yaml@2.8.2))
       aws-cdk:
-        specifier: ^2.1109.0
-        version: 2.1109.0
+        specifier: ^2.1110.0
+        version: 2.1110.0
       cdk-ecr-deployment:
         specifier: ^4.1.2
         version: 4.1.2(aws-cdk-lib@2.241.0(constructs@10.5.1))(constructs@10.5.1)
@@ -2328,8 +2328,8 @@ packages:
       - yaml
       - mime-types
 
-  aws-cdk@2.1109.0:
-    resolution: {integrity: sha512-K0jvr5ne9kvDrFfdzbPee/s2rH/iXdGoMHTp/0jaj1qFMOh49RkLWTnURa0sBpJJ0uB2sMzIx7YRmAn55wAy1Q==}
+  aws-cdk@2.1110.0:
+    resolution: {integrity: sha512-t881rXhuHWbiCXf8nuzf81jyOzHCgX1DNiCD3COwVGpT6DYna2SjsrDbraenJM722Oc+2OOAAMpKNEtVNj7mEg==}
     engines: {node: '>= 18.0.0'}
     hasBin: true
 
@@ -2999,8 +2999,8 @@ packages:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
     engines: {node: '>=16'}
 
-  flatted@3.3.4:
-    resolution: {integrity: sha512-3+mMldrTAPdta5kjX2G2J7iX4zxtnwpdA8Tr2ZSjkyPSanvbZAcy6flmtnXbEybHrDcU9641lxrMfFuUxVz9vA==}
+  flatted@3.4.1:
+    resolution: {integrity: sha512-IxfVbRFVlV8V/yRaGzk0UVIcsKKHMSfYw66T/u4nTwlWteQePsxe//LjudR1AMX4tZW3WFCh3Zqa/sjlqpbURQ==}
 
   for-each@0.3.5:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
@@ -3416,8 +3416,8 @@ packages:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
     hasBin: true
 
-  jose@6.2.0:
-    resolution: {integrity: sha512-xsfE1TcSCbUdo6U07tR0mvhg0flGxU8tPLbF03mirl2ukGQENhUg4ubGYQnhVH0b5stLlPM+WOqDkEl1R1y5sQ==}
+  jose@6.2.1:
+    resolution: {integrity: sha512-jUaKr1yrbfaImV7R2TN/b3IcZzsw38/chqMpo2XJ7i2F8AfM/lA4G1goC3JVEwg0H7UldTmSt3P68nt31W7/mw==}
 
   joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
@@ -3996,8 +3996,8 @@ packages:
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
 
-  pnpm@10.30.3:
-    resolution: {integrity: sha512-yWHR4KLY41TsqlFmuCJRZmi39Ey1vZUSLVkN2Bki9gb1RzttI+xKW+Bef80Y6EiNR9l4u+mBhy8RRdBumnQAFw==}
+  pnpm@10.31.0:
+    resolution: {integrity: sha512-45JziL+qgHjOt5t0j/wegnToTXUWPme8IuBsDTrtQ90VMVHL8R1/gwH/SsuYxovcXK32mJUygB/6/js+SmPCaA==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -4211,14 +4211,14 @@ packages:
     resolution: {integrity: sha512-1gnZf7DFcoIcajTjTwjwuDjzuz4PPcY2StKPlsGAQ1+YH20IRVrBaXSWmdjowTJ6u8Rc01PoYOGHXfP1mYcZNQ==}
     engines: {node: '>= 18'}
 
-  seroval-plugins@1.5.0:
-    resolution: {integrity: sha512-EAHqADIQondwRZIdeW2I636zgsODzoBDwb3PT/+7TLDWyw1Dy/Xv7iGUIEXXav7usHDE9HVhOU61irI3EnyyHA==}
+  seroval-plugins@1.5.1:
+    resolution: {integrity: sha512-4FbuZ/TMl02sqv0RTFexu0SP6V+ywaIe5bAWCCEik0fk17BhALgwvUDVF7e3Uvf9pxmwCEJsRPmlkUE6HdzLAw==}
     engines: {node: '>=10'}
     peerDependencies:
       seroval: ^1.0
 
-  seroval@1.5.0:
-    resolution: {integrity: sha512-OE4cvmJ1uSPrKorFIH9/w/Qwuvi/IMcGbv5RKgcJ/zjA/IohDLU6SVaxFN9FwajbP7nsX0dQqMDes1whk3y+yw==}
+  seroval@1.5.1:
+    resolution: {integrity: sha512-OwrZRZAfhHww0WEnKHDY8OM0U/Qs8OTfIDWhUD4BLpNJUfXK4cGmjiagGze086m+mhI+V2nD0gfbHEnJjb9STA==}
     engines: {node: '>=10'}
 
   serve-handler@6.1.7:
@@ -6075,7 +6075,7 @@ snapshots:
       express: 5.2.1
       express-rate-limit: 8.3.0(express@5.2.1)
       hono: 4.12.5
-      jose: 6.2.0
+      jose: 6.2.1
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.1
       raw-body: 3.0.2
@@ -7144,7 +7144,7 @@ snapshots:
       '@aws-cdk/cloud-assembly-schema': 52.2.0
       constructs: 10.5.1
 
-  aws-cdk@2.1109.0: {}
+  aws-cdk@2.1110.0: {}
 
   aws4fetch@1.0.20: {}
 
@@ -8002,10 +8002,10 @@ snapshots:
 
   flat-cache@4.0.1:
     dependencies:
-      flatted: 3.3.4
+      flatted: 3.4.1
       keyv: 4.5.4
 
-  flatted@3.3.4: {}
+  flatted@3.4.1: {}
 
   for-each@0.3.5:
     dependencies:
@@ -8375,7 +8375,7 @@ snapshots:
 
   jiti@2.6.1: {}
 
-  jose@6.2.0: {}
+  jose@6.2.1: {}
 
   joycon@3.1.1: {}
 
@@ -9015,7 +9015,7 @@ snapshots:
       exsolve: 1.0.8
       pathe: 2.0.3
 
-  pnpm@10.30.3: {}
+  pnpm@10.31.0: {}
 
   possible-typed-array-names@1.1.0: {}
 
@@ -9292,11 +9292,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  seroval-plugins@1.5.0(seroval@1.5.0):
+  seroval-plugins@1.5.1(seroval@1.5.1):
     dependencies:
-      seroval: 1.5.0
+      seroval: 1.5.1
 
-  seroval@1.5.0: {}
+  seroval@1.5.1: {}
 
   serve-handler@6.1.7:
     dependencies:
@@ -9413,8 +9413,8 @@ snapshots:
   solid-js@1.9.11:
     dependencies:
       csstype: 3.2.3
-      seroval: 1.5.0
-      seroval-plugins: 1.5.0(seroval@1.5.0)
+      seroval: 1.5.1
+      seroval-plugins: 1.5.1(seroval@1.5.1)
 
   solid-markdown@2.1.1(solid-js@1.9.11):
     dependencies:
