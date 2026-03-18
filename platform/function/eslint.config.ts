@@ -1,22 +1,22 @@
-// @ts-check
-
+// eslint-disable-next-line import/no-unresolved
+import { defineConfig } from 'eslint/config';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import tseslint from 'typescript-eslint';
+// eslint-disable-next-line import/no-unresolved
+import { configs, parser } from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
+// @ts-expect-error ignore import error for node:path
 import pluginPromise from 'eslint-plugin-promise';
 
 import { includeIgnoreFile } from '@eslint/compat';
-// @ts-expect-error ignore import error for node:path
 import path from 'node:path';
-// @ts-expect-error ignore import error for node:url
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, '../.gitignore');
 
-export default tseslint.config(
+export default defineConfig(
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
@@ -31,8 +31,8 @@ export default tseslint.config(
     ],
   },
   eslint.configs.recommended,
-  ...tseslint.configs.strict,
-  ...tseslint.configs.stylistic,
+  ...configs.strict,
+  ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   {
     files: [
@@ -40,7 +40,7 @@ export default tseslint.config(
       // '**/*.js',
     ],
     languageOptions: {
-      parser: tseslint.parser,
+      parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
@@ -50,7 +50,6 @@ export default tseslint.config(
     },
     plugins: {
       '@stylistic': stylistic,
-      '@stylistic/ts': stylistic,
     },
     extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
     rules: {

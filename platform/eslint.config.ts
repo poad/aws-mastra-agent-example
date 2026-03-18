@@ -26,6 +26,7 @@ export default defineConfig(
       'out',
       'cdk.out',
       'dist',
+      'function',
     ],
   },
   eslint.configs.recommended,

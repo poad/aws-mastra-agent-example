@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "nodenext",
     "lib": ["ESNext"],
     "declaration": false,
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -17,6 +17,9 @@
     "inlineSourceMap": false,
     "inlineSources": false,
     "experimentalDecorators": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   }
 }
