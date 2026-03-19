@@ -1,8 +1,8 @@
+import { server } from './mcp-server.js';
 import { Hono } from 'hono';
 import { StreamableHTTPTransport } from '@hono/mcp';
 
 import { handle } from 'hono/aws-lambda';
-import { server } from './mcp-server.js';
 import { Logger } from '@aws-lambda-powertools/logger';
 
 const logger = new Logger();

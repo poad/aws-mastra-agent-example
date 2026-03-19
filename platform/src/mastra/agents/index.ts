@@ -1,6 +1,6 @@
+import { mcp } from '../mcp.js';
 import { bedrock } from '@ai-sdk/amazon-bedrock';
 import { Agent } from '@mastra/core/agent';
-import { mcp } from '../mcp.js';
 
 const BEDROCK_MODEL = process.env.BEDROCK_MODEL ?? 'openai.gpt-oss-120b-1:0';
 

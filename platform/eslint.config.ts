@@ -1,14 +1,17 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'eslint/config';
+import cdkPlugin from 'eslint-plugin-awscdk';
 import eslint from '@eslint/js';
-import stylistic from '@stylistic/eslint-plugin';
 import { configs, parser } from 'typescript-eslint';
-import importPlugin from 'eslint-plugin-import';
-// @ts-expect-error https://github.com/eslint-community/eslint-plugin-promise/issues/488 解決待ち
+import stylistic from '@stylistic/eslint-plugin';
+import { importX, createNodeResolver } from 'eslint-plugin-import-x';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+
+// @ts-expect-error ignore type errors
 import pluginPromise from 'eslint-plugin-promise';
 
 import { includeIgnoreFile } from '@eslint/compat';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,14 +22,10 @@ export default defineConfig(
   {
     ignores: [
       '**/*.d.ts',
-      'src/tsconfig.json',
-      'src/stories',
-      '**/*.css',
-      'node_modules/**/*',
       'out',
       'cdk.out',
-      'dist',
-      'function',
+      '**/generated/**',
+      '**/*.js',
     ],
   },
   eslint.configs.recommended,
@@ -34,36 +33,57 @@ export default defineConfig(
   ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   {
-    files: [
-      '**/*.ts',
-    ],
+    files: ['**/*.ts'],
     languageOptions: {
-      parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parser,
       parserOptions: {
+        projectService: {
+          allowDefaultProject: ['eslint.config.ts', 'vitest.config.ts'],
+        },
         tsconfigRootDir: __dirname,
-        project: ['./tsconfig-test.json'],
-      },
-    },
-    'settings': {
-      'import/resolver': {
-        // You will also need to install and configure the TypeScript resolver
-        // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
-        'typescript': true,
-        'node': true,
       },
     },
     plugins: {
+      'import-x': importX,
       '@stylistic': stylistic,
     },
-    extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
+    extends: [
+      'import-x/flat/recommended',
+      cdkPlugin.configs.recommended,
+    ],
+    settings: {
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+        }),
+        createNodeResolver(),
+      ],
+    },
     rules: {
       '@stylistic/semi': ['error', 'always'],
       '@stylistic/indent': ['error', 2],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'],
+
+      'import-x/order': [
+        'error',
+        {
+          'groups': [
+            // Imports of builtins are first
+            'builtin',
+            // Then sibling and parent imports. They can be mingled together
+            ['sibling', 'parent'],
+            // Then index file imports
+            'index',
+            // Then any arcane TypeScript imports
+            'object',
+            // Then the omitted imports: internal, external, type, unknown
+          ],
+        },
+      ],
     },
   },
 );

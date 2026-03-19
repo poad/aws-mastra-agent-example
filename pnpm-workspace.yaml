@@ -4,17 +4,25 @@ packages:
   - ./platform
   - ./platform/function
 
-onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - esbuild
-  - onnxruntime-node
-  - protobufjs
-  - unrs-resolver
+minimumReleaseAge: 10080 # 7 days in minutes
+minimumReleaseAgeExclude:
+  - '@hono/node-server@1.19.13'
+  - hono@4.12.12
+  - '@esbuild/*'
+  - esbuild@0.27.7 || 0.28.0
+  - vite@7.3.2 || 8.0.7
+  - '@vitest/*'
+  - vitest@4.1.3
 
 overrides:
-  '@hono/node-server@<1.19.10': '>=1.19.10'
-  express-rate-limit@>=8.2.0 <8.2.2: '>=8.2.2'
-  fast-xml-parser@>=4.0.0-beta.3 <=5.5.5: '>=5.5.6'
-  fast-xml-parser@>=5.0.0 <5.3.8: '>=5.3.8'
-  hono@<4.12.4: '>=4.12.4'
-  rollup@>=4.0.0 <4.59.0: '>=4.59.0'
+  '@hono/node-server@<1.19.13': '>=1.19.13'
+  hono: '>=4.12.12'
+  path-to-regexp@>=8.0.0 <8.4.0: '>=8.4.0'
+  semver: '>=7'
+  vite: '>=8.0.5'
+
+publishBranch: main
+
+strictPeerDependencies: false
+
+trustPolicy: no-downgrade

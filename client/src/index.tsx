@@ -1,9 +1,9 @@
 /* @refresh reload */
 import './index.css';
 
+import App from './app';
 import { render } from 'solid-js/web';
 
-import App from './app';
 import { Route, Router } from '@solidjs/router';
 
 const root = document.getElementById('root');

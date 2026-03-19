@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import * as cdk from 'aws-cdk-lib';
-import { PlatformStack } from '../lib/platform-stack.js';
 import assert from 'assert';
+import { PlatformStack } from '../lib/platform-stack.js';
+import * as cdk from 'aws-cdk-lib';
 
 const app = new cdk.App();
 
@@ -13,7 +13,7 @@ const env = {
   account,
 };
 
-const platform = new PlatformStack(app, 'mastra-agent-example', {
+const platform = new PlatformStack(app, 'MastraAgentExample', {
   env,
 });
 

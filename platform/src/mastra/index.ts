@@ -1,9 +1,9 @@
+import { weatherAgent } from './agents/index.js';
 import { Mastra } from '@mastra/core/mastra';
 import { PinoLogger } from '@mastra/loggers';
 import { Observability } from '@mastra/observability';
 import { LangfuseExporter } from '@mastra/langfuse';
 
-import { weatherAgent } from './agents/index.js';
 
 const cors = {
   origin: ['*'],
