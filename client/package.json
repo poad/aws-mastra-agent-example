@@ -29,13 +29,13 @@
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.1",
-    "vite": "^8.0.0",
+    "typescript-eslint": "^8.57.2",
+    "vite": "^8.0.2",
     "vite-plugin-solid": "^2.11.11"
   },
   "dependencies": {
     "@ai-sdk/ui-utils": "^1.2.11",
-    "@mastra/client-js": "^1.9.0",
+    "@mastra/client-js": "^1.9.1",
     "@solidjs/router": "^0.15.4",
     "crypto-js": "^4.2.0",
     "solid-js": "^1.9.11",
