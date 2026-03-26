@@ -35,10 +35,10 @@
   },
   "dependencies": {
     "@ai-sdk/ui-utils": "^1.2.11",
-    "@mastra/client-js": "^1.9.1",
+    "@mastra/client-js": "^1.10.0",
     "@solidjs/router": "^0.15.4",
     "crypto-js": "^4.2.0",
-    "solid-js": "^1.9.11",
+    "solid-js": "^1.9.12",
     "solid-markdown": "^2.1.1"
   }
 }
